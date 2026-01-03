@@ -1,0 +1,21 @@
+import Pointage from '@/components/features/pointage'
+import Searchbutton from '@/components/features/search'
+import { ArrowUpRight, Files } from 'lucide-react'
+import React from 'react'
+
+const Navbar = () => {
+  return (
+    <nav className='flex  justify-end items-center py-3 p-2 h-13 gap-1.5'>
+      
+    <div className="flex items-center gap-2">
+      <Searchbutton/>
+        <button className=" button h-10 cursor-pointer w-12  ">
+               <ArrowUpRight/>
+              </button>
+          <Pointage/>
+    </div>
+    </nav>
+  )
+}
+
+export default Navbar

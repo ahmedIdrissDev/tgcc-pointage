@@ -1,0 +1,29 @@
+import React from 'react'
+import Logo from '../ui/logo'
+import Button from '../ui/button'
+import { Home, Users } from 'lucide-react'
+import Searchbutton from '../ui/search'
+import Logout from '../ui/logout'
+import { links } from '@/constant/links'
+import Userbutton from '../ui/userbutton'
+
+const Sidebar = () => {
+  return (
+    <div className="w-full gap-2.5 p-2 border-r bg-white border-neutral-100 flex flex-col justify-between h-full">
+      <Logo/>
+      <div className="py-2">
+        <Userbutton/>
+      </div>
+      <div className="w-full py-3 gap-1 h-full flex flex-col">
+      {links.map((data , index)=>(
+        <Button key={index} {...data} />
+
+      ))}
+         
+      </div>
+      <Logout/>
+    </div>
+  )
+}
+
+export default Sidebar
