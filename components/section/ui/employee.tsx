@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 const Employee = () => {
   const { data } = ContextStoreDataProvider();
   const Present =
@@ -26,15 +27,35 @@ const Employee = () => {
         <span>Suivi du pointage Mensuel</span>
       </div>
       <ScrollArea className="h-96 py-2 flex flex-col space-x-2.5 button w-full rounded-md  ">
-        <Alert variant="destructive">
+      {Present.length > 0 &&
+          <Alert variant="destructive">
           <SearchAlert />
           <AlertTitle>Suivi </AlertTitle>
           <AlertDescription>
             Merci de valider le pointage mensuel.
           </AlertDescription>
         </Alert>
+      }
+      { Present.length== 0 &&
+      
+        <div className="flex h-90 flex-col gap-2  w-full justify-center items-center">
+          <Image
+                      src={"/icons/thanks.svg"}
+                      className=" opacity-100 w-50 "
+                      width={1000}
+                      height={1000}
+                      alt="profile"
+                    />
+                    <p>Merci pour la validation.</p>
+
+        </div>
+      }
+        { Present.length > 0 &&
+                    
+                    
         <Table className="mt-2">
           <TableBody>
+            
             {Present.map(
               ({ number_id, first_name, last_name, type, status }, key) => (
                 <TableRow>
@@ -51,6 +72,9 @@ const Employee = () => {
             )}
           </TableBody>
         </Table>
+      
+      
+      }
       </ScrollArea>
     </div>
   );
