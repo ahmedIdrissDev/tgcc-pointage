@@ -32,14 +32,13 @@ export default function Home() {
            const formdata = new FormData(e.currentTarget)
            const data =  Object.fromEntries(formdata.entries())
            const res =  await signIn('credentials' ,{...data , redirect:false })
-           console.log(res?.error)
            if(res?.error){
-               seterrors(true)
-           }
-           if(res?.ok){
+             seterrors(true)
+            }
+            if(res?.ok){
               seterrors(false)
-              redirect('/dashboard')
-           }
+            }
+            redirect('/dashboard')
   }
   return (
     <div className="flex justify-center border border-neutral-200 items-center p-3 w-96 h-max bg-white rounded-xl">

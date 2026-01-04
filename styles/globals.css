@@ -58,7 +58,7 @@
 
 @layer components{
   .button{
-    @apply border bg-white cursor-pointer flex items-center px-2 gap-2  border-neutral-200 rounded-md shadow shadow-neutral-100/55
+    @apply border rounded-md bg-white cursor-pointer flex items-center px-2 gap-2  border-neutral-200   shadow-neutral-100/55
   }
 
 }

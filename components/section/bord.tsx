@@ -10,18 +10,21 @@ const Bord = () => {
         icon={<User/>}
         label='Employees Overview'
         description='A quick summary of all employees'
-        hasbutton
        />
               <Card
         Number={3}
         icon={<TrendingDown/>}
         label='Absent'
         description='Staff members marked as absent'
+                hasbutton
+
        />
               <Card
         Number={33}
         icon={<TrendingUp/>}
         label='Present'
+                hasbutton
+
         description='Team members on duty today.'
        />
     </div>

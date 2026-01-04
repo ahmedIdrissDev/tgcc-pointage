@@ -10,9 +10,14 @@ const page = () => {
       <p className='text-sm'>Overview of employees attendance and activity.</p>
     </div>
     <Bord/>
-    <div className="p-2">
+    <div className="p-2 grid gap-2 grid-cols-2">
     <Employee/>
-     
+    <div className="w-full h-full ">
+      <div className="py-2">
+  <span>Pointage par les Munsuile</span>
+</div>
+<div className="w-full h-full button"></div>
+    </div>
     </div>
     </>
   )
