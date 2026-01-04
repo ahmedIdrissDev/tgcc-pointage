@@ -10,7 +10,7 @@ const layout = ({
   return (
     <div className='grid  h-dvh grid-cols-[270px_1fr] '>
       <Sidebar />
-       <div className="w-full bg-tgcc-50/50   h-full">
+       <div className="w-full    h-full">
         <Navbar/>
         <div className="p-2 ">
 

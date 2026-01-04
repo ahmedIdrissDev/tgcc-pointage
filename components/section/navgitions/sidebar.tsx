@@ -5,11 +5,11 @@ import { Home, Users } from 'lucide-react'
 import Searchbutton from '../ui/search'
 import Logout from '../ui/logout'
 import { links } from '@/constant/links'
-import Userbutton from '../ui/userbutton'
+import Userbutton from '../../features/userbutton'
 
 const Sidebar = () => {
   return (
-    <div className="w-full gap-2.5 p-2 border-r bg-white border-neutral-100 flex flex-col justify-between h-full">
+    <div className="w-full gap-2.5 p-2 border-r bg-tgcc-50 border-neutral-100 flex flex-col justify-between h-full">
       <Logo/>
       <div className="py-2">
         <Userbutton/>

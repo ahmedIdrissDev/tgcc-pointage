@@ -76,7 +76,7 @@ const Pointage = () => {
             <div className="flex flex-col gap-2">
               <div className="bg-tgcc-600/5  p-1.5 border border-neutral-200 h-12 flex justify-between items-center rounded-md">
                   <span>{chantier?.name} </span>
-                  <input type="time" name="" id="" />
+                  <input type="time" defaultValue={'08:00'} name="" id="" />
               </div>
               <input
                 onChange={(e) => setNumber_Id(Number(e.currentTarget.value))}
