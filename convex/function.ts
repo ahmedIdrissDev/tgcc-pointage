@@ -45,7 +45,7 @@ export const getProject = query({
     try {
       const project = await ctx.db.query("Project").collect();
       if (!project) return [{ error: "not" }];
-      const getProject = project.find(({ users }) =>
+      const getProject = project.filter(({ users }) =>
         users.includes(args.userId)
       );
       return getProject;

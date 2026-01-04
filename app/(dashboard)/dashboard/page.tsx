@@ -6,7 +6,7 @@ const page = () => {
   return (
     <>
     <div className="p-2.5">
-      <h1 className='text-[17px] '>Dashboard</h1>
+      <h1 className='text-[17px] '>Tableau de bord</h1>
       <p className='text-sm'>Overview of employees attendance and activity.</p>
     </div>
     <Bord/>

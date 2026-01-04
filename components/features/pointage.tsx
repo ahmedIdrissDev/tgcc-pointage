@@ -9,6 +9,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AnimatePresence, motion } from "motion/react"
 import { twMerge } from "tailwind-merge";
 import { PointgaeTypes } from "@/types";
+import { useSession } from "next-auth/react";
 
 interface  AttendanceType{
    project_id:Id<"Project"> ,
@@ -20,8 +21,8 @@ const Pointage = () => {
   const [number_Id, setNumber_Id] = useState<number>(0);
   const [loading , setloading] = useState<boolean>(false)
   const trigger = () => (open ? setopen(false) : setopen(true));
-
-  const userId = "jn73r9d0x19xjt47nj71aek7a97ycqgs" as Id<"user">;
+  const {data} = useSession()
+  const userId =(data?.user._id || undefined)  as Id<"user">;
 
   const chantier = useQuery(api.function.getProject, { userId });
   const getEmployeesData = useQuery(api.function.getEmaployeesData, { number_id: number_Id});

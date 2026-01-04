@@ -11,7 +11,7 @@ const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
   return (
         <div className="w-full  bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-500 first:border-0 first:text-white p-2 h-full border border-neutral-200 rounded-md">
             <div className="flex justify-between items-center">
-                <span className='font-bold'>{label} </span>
+                <span className='text-[17px] '>{label} </span>
                 <span>{icon} </span>
             </div>
             <span className='text-sm opacity-80'>{description} </span>
