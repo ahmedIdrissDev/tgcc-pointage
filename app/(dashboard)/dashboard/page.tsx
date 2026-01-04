@@ -7,16 +7,16 @@ const page = () => {
     <>
     <div className="p-2.5">
       <h1 className='text-[17px] '>Tableau de bord</h1>
-      <p className='text-sm'>Overview of employees attendance and activity.</p>
+      <p className='text-sm'>Vue d’ensemble de la présence et de l’activité des employé.</p>
     </div>
     <Bord/>
     <div className="p-2 grid gap-2 grid-cols-2">
     <Employee/>
     <div className="w-full h-full ">
       <div className="py-2">
-  <span>Pointage par les Munsuile</span>
+  <span>Pointage des engins</span>
 </div>
-<div className="w-full h-full button"></div>
+<div className="w-full bg-tgcc-100/25 h-full button"></div>
     </div>
     </div>
     </>

@@ -79,7 +79,10 @@ export const handleAttendance = mutation({
           error: "Sortie déjà enregistrée pour cet employé",
         };
       if (validateAttendance && !validateAttendance.check_out) {
-        await ctx.db.patch(validateAttendance._id, { check_out: time , status:false });
+        await ctx.db.patch(validateAttendance._id, {
+          check_out: time,
+          status: false,
+        });
       } else {
         await ctx.db.insert("Attendance", {
           check_in: time,
@@ -87,7 +90,7 @@ export const handleAttendance = mutation({
           employee_id: args.employee_id,
           project_id: args.project_id,
           work_date: today,
-          status:true
+          status: true,
         });
       }
     } catch (error) {}
@@ -106,21 +109,18 @@ export const getEmaployee = query({
       const project_id = await ctx.db.get(employee.project_id);
       const AttendanceData = await ctx.db
         .query("Attendance")
-        .filter((q) =>
-          q.and(
-            q.eq(q.field("employee_id"), employee._id),
-          )
-        )
+        .filter((q) => q.and(q.eq(q.field("employee_id"), employee._id)))
         .order("desc")
         .collect();
-        const Attendance = await Promise.all(AttendanceData.map( async(data)=>{
-            const project_id =  await ctx.db.get(data.project_id)
-            return {
-              ...data ,
-              project_id:project_id?.name
-
-            }
-        }))
+      const Attendance = await Promise.all(
+        AttendanceData.map(async (data) => {
+          const project_id = await ctx.db.get(data.project_id);
+          return {
+            ...data,
+            project_id: project_id?.name,
+          };
+        })
+      );
       return {
         employee,
         project_id,
@@ -129,5 +129,35 @@ export const getEmaployee = query({
     } catch (error) {
       console.log(error);
     }
+  },
+});
+
+export const fetchEmployees = query({
+  args: {
+    id: v.id("Project"),
+  },
+  handler: async (ctx, args) => {
+    const employee = await ctx.db
+      .query("Employee")
+      .filter((q) => q.eq(q.field("project_id"), args.id))
+      .collect();
+    return Promise.all(
+      employee.map(async (data) => {
+        const validateAttendance = await ctx.db
+          .query("Attendance")
+          .filter((q) =>
+            q.and(
+              q.eq(q.field("work_date"), today),
+              q.eq(q.field("employee_id"), data._id)
+            )
+          )
+          .first();
+
+        return {
+          ...data,
+          present: !!validateAttendance,
+        };
+      })
+    );
   },
 });

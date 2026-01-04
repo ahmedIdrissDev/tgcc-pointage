@@ -1,31 +1,37 @@
+'use client'
 import React from 'react'
 import Card from './ui/card'
 import { TrendingDown, TrendingUp, User } from 'lucide-react'
+import { ContextStoreDataProvider } from '@/Context'
 
 const Bord = () => {
+  const {data} = ContextStoreDataProvider() 
+  const employees = data || [] 
+  const Present=  data?.filter(({present})=> !!present) || []
+
   return (
     <div className='w-full p-2 h-60 gap-2 grid grid-cols-3'>
        <Card
-        Number={333}
+        Number={employees.length}
         icon={<User/>}
-        label='Employees Overview'
-        description='A quick summary of all employees'
+        label='Aperçu des employés'
+        description='Résumé rapide de tous les employés'
        />
-              <Card
-        Number={3}
+          <Card
+        Number={Present.length}
         icon={<TrendingDown/>}
-        label='Absent'
-        description='Staff members marked as absent'
-                hasbutton
+        label='Absents'
+        description='Employés marqués comme absents'
+           hasbutton
 
        />
               <Card
-        Number={33}
+        Number={Present.length}
         icon={<TrendingUp/>}
-        label='Present'
+        label='Présents'
                 hasbutton
 
-        description='Team members on duty today.'
+        description='Membres de l’équipe en service aujourd’hui'
        />
     </div>
   )

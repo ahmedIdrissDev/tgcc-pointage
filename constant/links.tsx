@@ -1,4 +1,4 @@
-import { Hexagon, Home, Settings, User, Users } from "lucide-react"
+import { Box, Hexagon, Home, Settings, User, Users } from "lucide-react"
 
 interface links{
     label:string ,
@@ -21,6 +21,12 @@ export const links:links[]=[
      {
         icon:<Hexagon/> ,
         label:'Engins' ,
+        path:'/engins'
+    } ,
+     ,
+     {
+        icon:<Box/> ,
+        label:'Stock' ,
         path:'/engins'
     } ,
      {

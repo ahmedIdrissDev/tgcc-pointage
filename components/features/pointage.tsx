@@ -72,7 +72,7 @@ const Pointage = () => {
 
             onClick={e=> e.stopPropagation()}
             onSubmit={handleSubmite}
-            className="w-1/2 flex flex-col justify-between gap-2 h-96 p-2.5 bg-white rounded-md"
+            className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
           >
             <div className="flex flex-col gap-2">
               <div className="bg-tgcc-600/5  p-1.5 border border-neutral-200 h-12 flex justify-between items-center rounded-md">

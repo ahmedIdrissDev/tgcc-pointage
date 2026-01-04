@@ -40,3 +40,19 @@ export interface PointgaeTypes {
      status:boolean  ;
      error:string
 }
+export type EmployeeStoreType = {
+  _id: string;
+  _creationTime: number; 
+  first_name: string;
+  last_name: string;
+  number_id: number;
+  present: boolean;
+  project_id: string;
+  status: "Actif" | "Inactif";
+  type: "Quinzainier" | "Mensuel";
+};
+
+export interface ContextStoreProvider {
+  data:EmployeeStoreType[] ,
+  setdata: (data:EmployeeStoreType[])=> void
+}

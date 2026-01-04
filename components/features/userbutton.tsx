@@ -20,7 +20,7 @@ const Userbutton = () => {
         <div className="flex items-center gap-1.5">
           <Image
             src={"/icons/user-Profile.png"}
-            className="w-10 h-10 bg-neutral-200 rounded-full"
+            className="w-10 opacity-70 h-10 bg-neutral-200 rounded-full"
             width={1000}
             height={1000}
             alt="profile"
