@@ -5,4 +5,14 @@ export const ContextStoreDataProvider = create<ContextStoreProvider>((set)=>({
     setdata(data) {
      set({data:data})
     },
+    Project:{
+        _creationTime:1 ,
+        _id:"" ,
+        name:"" ,
+        users:['']
+     } ,
+    setProject(args) {
+             set({Project:args})
+
+    },
 }))

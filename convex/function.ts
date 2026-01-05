@@ -1,12 +1,12 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
-const today = new Date().toISOString().split("T")[0];
-const time = new Date().toLocaleTimeString("en-GB");
 
 export const getEmaployeesData = query({
   args: {
     number_id: v.number(),
+    date: v.optional( v.string())  ,
+
   },
   handler: async (ctx, args) => {
     try {
@@ -20,7 +20,7 @@ export const getEmaployeesData = query({
         .query("Attendance")
         .filter((q) =>
           q.and(
-            q.eq(q.field("work_date"), today),
+            q.eq(q.field("work_date"), args.date),
             q.eq(q.field("employee_id"), employee._id)
           )
         )
@@ -57,6 +57,8 @@ export const handleAttendance = mutation({
   args: {
     employee_id: v.id("Employee"),
     project_id: v.id("Project"),
+    date: v.string() ,
+    time:v.string() 
   },
   handler: async (ctx, args) => {
     try {
@@ -68,7 +70,7 @@ export const handleAttendance = mutation({
         .query("Attendance")
         .filter((q) =>
           q.and(
-            q.eq(q.field("work_date"), today),
+            q.eq(q.field("work_date"), args.date),
             q.eq(q.field("employee_id"), args.employee_id),
             q.eq(q.field("project_id"), args.project_id)
           )
@@ -80,16 +82,16 @@ export const handleAttendance = mutation({
         };
       if (validateAttendance && !validateAttendance.check_out) {
         await ctx.db.patch(validateAttendance._id, {
-          check_out: time,
+          check_out: args.time,
           status: false,
         });
       } else {
         await ctx.db.insert("Attendance", {
-          check_in: time,
+          check_in: args.time,
           check_out: "",
           employee_id: args.employee_id,
           project_id: args.project_id,
-          work_date: today,
+          work_date:  args.date,
           status: true,
         });
       }
@@ -135,6 +137,7 @@ export const getEmaployee = query({
 export const fetchEmployees = query({
   args: {
     id: v.id("Project"),
+    date: v.string()
   },
   handler: async (ctx, args) => {
     const employee = await ctx.db
@@ -147,7 +150,7 @@ export const fetchEmployees = query({
           .query("Attendance")
           .filter((q) =>
             q.and(
-              q.eq(q.field("work_date"), today),
+              q.eq(q.field("work_date"), args.date),
               q.eq(q.field("employee_id"), data._id)
             )
           )

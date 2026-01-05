@@ -12,14 +12,14 @@ const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
         <div className="w-full overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-500 first:border-0 first:text-white p-2 h-full border border-neutral-200 rounded-md">
         
 <svg className='absolute  -top-8 -right-8  opacity-20' width="309" height="278" viewBox="0 0 309 278" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_9)">
+<g clipPath="url(#clip0_1_9)">
 <g filter="url(#filter0_f_1_9)">
 <path d="M30.6881 36.6742C24.8816 35.3462 25.8463 26.8 31.8027 26.8H276.513C279.274 26.8 281.513 29.0386 281.513 31.8V246.18C281.513 251.783 273.709 253.146 271.809 247.875L211.439 80.3699C210.862 78.7683 209.509 77.5705 207.85 77.191L30.6881 36.6742Z" fill="#FF6A19"/>
 </g>
 </g>
 <defs>
 <filter id="filter0_f_1_9" x="-1.14441e-05" y="-1.14441e-05" width="308.313" height="277.985" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="13.4" result="effect1_foregroundBlur_1_9"/>
 </filter>

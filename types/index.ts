@@ -35,10 +35,10 @@ export interface EmployeeDataTypes {
 }
 
 export interface PointgaeTypes {
-   employee: Employee;
-  project_id: Project;
+     employee: Employee;
+     project_id: Project;
      status:boolean  ;
-     error:string
+     error:string 
 }
 export type EmployeeStoreType = {
   _id: string;
@@ -53,6 +53,8 @@ export type EmployeeStoreType = {
 };
 
 export interface ContextStoreProvider {
-  data:EmployeeStoreType[] ,
-  setdata: (data:EmployeeStoreType[])=> void
+  data:EmployeeStoreType[] ;
+  setdata: (data:EmployeeStoreType[])=> void ;
+  Project:Project ;
+  setProject: (args:Project) => void 
 }

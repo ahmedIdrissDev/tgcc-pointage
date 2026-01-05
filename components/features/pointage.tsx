@@ -10,6 +10,8 @@ import { AnimatePresence, motion } from "motion/react"
 import { twMerge } from "tailwind-merge";
 import { PointgaeTypes } from "@/types";
 import { useSession } from "next-auth/react";
+import { ContextStoreDataProvider } from "@/Context";
+import useDatetime from "@/hooks/useDatetime";
 
 interface  AttendanceType{
    project_id:Id<"Project"> ,
@@ -21,13 +23,17 @@ const Pointage = () => {
   const [number_Id, setNumber_Id] = useState<number>(0);
   const [loading , setloading] = useState<boolean>(false)
   const trigger = () => (open ? setopen(false) : setopen(true));
-  const {data} = useSession()
-  const userId =(data?.user._id || undefined)  as Id<"user">;
 
-  const chantier = useQuery(api.function.getProject, { userId });
-  const getEmployeesData = useQuery(api.function.getEmaployeesData, { number_id: number_Id});
+  const {dateTime} = useDatetime()
+  const {Project:chantier} = ContextStoreDataProvider() ;
+
+  const fullDate =new Date().toISOString().split("T")[0]; 
+  const time = new Date().toTimeString().split(" ")[0];    
+
+  const getEmployeesData = useQuery(api.function.getEmaployeesData, number_Id  ? { number_id: number_Id , date:fullDate }:'skip');
   const handleAttendance = useMutation(api.function.handleAttendance)
   const formRef = useRef<HTMLFormElement>(null)
+
   async function handleSubmite(e: FormEvent<HTMLFormElement>) {
     try {
       e.preventDefault();
@@ -37,7 +43,9 @@ const Pointage = () => {
       const employee_id = formdata.get("employee_id") as Id<"Employee">
       const data = {
            project_id  ,
-           employee_id
+           employee_id ,
+           date:fullDate  ,
+           time
       }
       
       const error = await handleAttendance(data)

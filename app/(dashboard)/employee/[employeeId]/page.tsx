@@ -6,6 +6,7 @@ import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Barcode from 'react-barcode';
 import {
   Table,
   TableBody,
@@ -144,7 +145,7 @@ const page = () => {
 
         <TabPanel>
           <div className="bg-neutral-50 w-full h-dvh">
-            <h2>Any content 3</h2>
+              <Barcode className="w-72 h-12" value={employee.number_id} />,
           </div>{" "}
         </TabPanel>
         <TabPanel>

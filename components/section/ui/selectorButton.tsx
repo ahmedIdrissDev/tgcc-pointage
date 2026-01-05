@@ -11,23 +11,25 @@ import { useQuery } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { Id } from '@/convex/_generated/dataModel';
 import { ContextStoreDataProvider } from '@/Context';
-import { EmployeeDataTypes } from '@/types';
-interface SelectorType{
-  _id: string;
-    _creationTime: number;
-    name: string;
-    users: string;
-}
+import { EmployeeDataTypes, Project } from '@/types';
+import useDatetime from '@/hooks/useDatetime';
+
 const SelectorButton = () => {
    const [ProjectId , setProjectId] = useState('')
    const {data} = useSession()
-   const {setdata ,data:employeedaa} = ContextStoreDataProvider()
+   const {setdata ,data:employeedaa , setProject} = ContextStoreDataProvider()
     const userId =(data?.user._id || undefined)  as Id<"user">;
-    const chantier:SelectorType[] = useQuery(api.function.getProject, { userId }) || [];
+
+    const chantier:Project[] = useQuery(api.function.getProject, { userId }) || [];
     const id = (ProjectId || undefined)  as Id<"Project">;
-    const employeedata :EmployeeDataTypes[] = useQuery(api.function.fetchEmployees , id ? {id} :'skip')
+    const fullDate =new Date().toISOString().split("T")[0]; 
+
+    const employeedata :EmployeeDataTypes[] = useQuery(api.function.fetchEmployees , id ? {id , date:fullDate} :'skip')
+    
    useEffect(()=>{
-         setdata(employeedata)
+         setdata(employeedata) 
+         const chantierSelected = chantier.find(({_id})=> _id===ProjectId)
+         setProject(chantierSelected)
    } , [employeedata])
    console.log( 'data', employeedaa)
   return (
