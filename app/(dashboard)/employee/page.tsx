@@ -1,8 +1,12 @@
+import Addemployees from '@/components/section/ui/addemployees'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className="p-2">
+      <Addemployees/>
+
+    </div>
   )
 }
 
