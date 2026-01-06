@@ -16,7 +16,7 @@ const page = () => {
       <div className="py-2">
   <span>Pointage des engins</span>
 </div>
-<div className="w-full bg-tgcc-100/25 h-full button"></div>
+<div className="w-full  h-full button"></div>
     </div>
     </div>
     </>
