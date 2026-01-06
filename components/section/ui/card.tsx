@@ -40,7 +40,7 @@ const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
                <h3 className='text-2xl'>{Number}</h3> 
             </div>
             {hasbutton &&
-              <button className='w-30 button bg-tgcc-500  flex justify-center items-center gap-2 h-12 cursor-pointer rounded-xl  text-white border-0 '> 
+              <button className='w-30 button bg-tgcc-500  flex justify-center items-center gap-2 h-12 cursor-pointer rounded-md  text-white border-0 '> 
               <ArrowUpRight/>
                <span>details</span>
               </button>

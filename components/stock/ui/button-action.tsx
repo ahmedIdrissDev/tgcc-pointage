@@ -17,8 +17,8 @@ const Buttonaction = () => {
   <DropdownMenuContent className='mr-3.5'>
     <DropdownMenuLabel>Mange Article</DropdownMenuLabel>
     <DropdownMenuSeparator />
-    <DropdownMenuItem>Tronsfer </DropdownMenuItem>
-    <DropdownMenuItem>Edite</DropdownMenuItem>
+    <DropdownMenuItem>Transfert de stock </DropdownMenuItem>
+    <DropdownMenuItem>Modifier</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>  )
 }

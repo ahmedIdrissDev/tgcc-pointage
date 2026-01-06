@@ -33,14 +33,16 @@ const Pointage = () => {
   const getEmployeesData = useQuery(api.function.getEmaployeesData, number_Id  ? { number_id: number_Id , date:fullDate }:'skip');
   const handleAttendance = useMutation(api.function.handleAttendance)
   const formRef = useRef<HTMLFormElement>(null)
+const Employee = getEmployeesData
+  const {employee ,status ,project_id}  = (Employee  || [] )  as PointgaeTypes
 
   async function handleSubmite(e: FormEvent<HTMLFormElement>) {
     try {
       e.preventDefault();
       setloading(true)
       const formdata = new FormData(e.currentTarget)
-      const   project_id = formdata.get("project_id") as Id<"Project"> 
-      const employee_id = formdata.get("employee_id") as Id<"Employee">
+      const   project_id = employee.project_id as Id<"Project"> 
+      const employee_id = employee._id as Id<"Employee">
       const data = {
            project_id  ,
            employee_id ,
@@ -59,8 +61,7 @@ const Pointage = () => {
     } catch (error) {}
   }
   
-  const Employee = getEmployeesData
-  const {employee ,status ,project_id}  = (Employee  || [] )  as PointgaeTypes
+  
   console.log(status)
   return (
     <>
@@ -155,8 +156,7 @@ const Pointage = () => {
               )}
               
             </div>
-            <input type="text" hidden defaultValue={employee?.project_id} readOnly name="project_id" />
-            <input type="text" hidden  defaultValue={employee?._id} readOnly name="employee_id" />
+           
             <div className="flex items-center justify-end gap-1.5">
               <button disabled={loading} className={twMerge('h-11 cursor-pointer w-40 bg-tgcc-600 border-t-2 border-tgcc-500 text-white rounded-md', loading  || number_Id == 0 || number_Id==null ? 'bg-neutral-500 border-neutral-400/35 cursor-auto':'bg-tgcc-600 border-t-2 border-tgcc-500')}>
                 Pointage {status && "sortie"}

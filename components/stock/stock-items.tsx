@@ -33,8 +33,18 @@ const Stockitems = () => {
       <TableCell >2026-01-16</TableCell>
       <TableCell className="text-right">$250.00</TableCell>
       <TableCell className="text-right">$250.00</TableCell>
+      <TableCell className="text-right">
+        <Buttonaction/>
+      </TableCell>
 
-
+    </TableRow>
+     <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell >2026-01-16</TableCell>
+      <TableCell className="text-right">100</TableCell>
+      <TableCell className="text-right">33</TableCell>
       <TableCell className="text-right">
         <Buttonaction/>
       </TableCell>
