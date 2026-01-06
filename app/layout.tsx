@@ -34,6 +34,7 @@ export default async function RootLayout({
         className={inter.className}
         >
       <Toaster
+       position="top-center"
       style={
         {
           "--normal-bg": "var(--color-tgcc-50)",

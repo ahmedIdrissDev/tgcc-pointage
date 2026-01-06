@@ -12,6 +12,7 @@ import { PointgaeTypes } from "@/types";
 import { useSession } from "next-auth/react";
 import { ContextStoreDataProvider } from "@/Context";
 import useDatetime from "@/hooks/useDatetime";
+import { Spinner } from "../ui/spinner";
 
 interface  AttendanceType{
    project_id:Id<"Project"> ,
@@ -39,23 +40,32 @@ const Employee = getEmployeesData
   async function handleSubmite(e: FormEvent<HTMLFormElement>) {
     try {
       e.preventDefault();
-      setloading(true)
-      const formdata = new FormData(e.currentTarget)
       const   project_id = employee.project_id as Id<"Project"> 
       const employee_id = employee._id as Id<"Employee">
-      const data = {
-           project_id  ,
-           employee_id ,
-           date:fullDate  ,
-           time
-      }
+      if(employee.status ==="Inactif") {
+         return  toast.error('Le salaire ne pas actif.')
+       } 
+      if(project_id !== chantier._id) {
+          return  toast.error('Le salaire n’est pas affecté au chantier.')
+
+       } 
       
-      const error = await handleAttendance(data)
-      formRef.current?.reset()
-      setloading(false)
-      if(error?.error) {
-        toast.info(error.error)
-      }
+        const data = {
+             project_id  ,
+             employee_id ,
+             date:fullDate  ,
+             time
+        }
+              setloading(true)
+
+        const error = await handleAttendance(data)
+        formRef.current?.reset()
+        setloading(false)
+        if(error?.error) {
+          toast.info(error.error)
+        }
+
+      
 
 
     } catch (error) {}
@@ -71,13 +81,12 @@ const Employee = getEmployeesData
       <AnimatePresence>
 
       {open && (
-        <div onClick={trigger} className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-center items-center">
+        <div onClick={trigger} className="inset-0 z-40 fixed shadow-2xl shadow-neutral-200 bg-neutral-950/15 flex justify-center items-center">
           <motion.form
             ref={formRef}
             initial={{opacity:0 , translateY:10}}
             animate={{opacity:1 , translateY:0}}
             exit={{opacity:0 , translateY:10}}
-
             onClick={e=> e.stopPropagation()}
             onSubmit={handleSubmite}
             className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
@@ -98,12 +107,12 @@ const Employee = getEmployeesData
                 </Alert>
               ) : (
                 <>
-                  {chantier?._id != project_id?._id && (
+                  {chantier?._id != employee?.project_id && (
                     <Alert variant="destructive">
                       <SearchAlert />
                       <AlertTitle>Error</AlertTitle>
                       <AlertDescription>
-                        Le salaire n’est pas affecté au chantier.{" "}
+                        Le salaire n’est pas affecté au chantier.
                       </AlertDescription>
                     </Alert>
                   )}
@@ -158,8 +167,9 @@ const Employee = getEmployeesData
             </div>
            
             <div className="flex items-center justify-end gap-1.5">
-              <button disabled={loading} className={twMerge('h-11 cursor-pointer w-40 bg-tgcc-600 border-t-2 border-tgcc-500 text-white rounded-md', loading  || number_Id == 0 || number_Id==null ? 'bg-neutral-500 border-neutral-400/35 cursor-auto':'bg-tgcc-600 border-t-2 border-tgcc-500')}>
-                Pointage {status && "sortie"}
+              <button disabled={loading} className={twMerge('h-11 gap-2 flex justify-center items-center cursor-pointer w-40 bg-tgcc-600 border-t-2 border-tgcc-500 text-white rounded-md', loading  || number_Id == 0 || number_Id==null ? 'bg-neutral-500 border-neutral-400/35 cursor-auto':'bg-tgcc-600 border-t-2 border-tgcc-500')}>
+              {loading && <Spinner />}
+                 {status ? "Pointage sortie":"Pointage"}
               </button>
             </div>
           </motion.form>

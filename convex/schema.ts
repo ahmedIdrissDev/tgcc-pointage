@@ -26,7 +26,7 @@ export default defineSchema({
     ) ,
     status:v.union(
         v.literal("Actif") ,
-        v.literal("inatif") ,
+        v.literal("Inactif") ,
     ) ,
 
   }).index("project_id", ["project_id"]),
