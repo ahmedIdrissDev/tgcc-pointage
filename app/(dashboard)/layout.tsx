@@ -1,5 +1,6 @@
 import Navbar from '@/components/section/navgitions/navbar';
 import Sidebar from '@/components/section/navgitions/sidebar';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import React from 'react'
 
 const layout = ({
@@ -10,13 +11,14 @@ const layout = ({
   return (
     <div className='grid  h-dvh grid-cols-[270px_1fr] '>
       <Sidebar />
-       <div className="w-full bg-tgcc-50/10   h-full">
+       <ScrollArea  className="w-full  bg-tgcc-50/80   h-dvh">
         <Navbar/>
         <div className="p-2 ">
 
         {children}
         </div>
-       </div>
+              <ScrollBar hidden orientation="vertical" />
+       </ScrollArea>
     </div>
   )
 }

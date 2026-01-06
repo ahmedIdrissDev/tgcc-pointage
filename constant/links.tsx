@@ -27,7 +27,7 @@ export const links:links[]=[
      {
         icon:<Box/> ,
         label:'Stock' ,
-        path:'/engins'
+        path:'/stock'
     } ,
      {
         icon:<Settings/> ,

@@ -6,7 +6,7 @@ const Engins = () => {
   return (
     <div className="w-full h-full ">
       <div className="py-2">
-  <span>Pointage des engins</span>
+  <span>Etat des engins</span>
 </div>
 <ScrollArea className="w-full  h-full button">
     <EnginsCard/>

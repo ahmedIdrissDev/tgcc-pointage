@@ -26,7 +26,7 @@ const Employee = () => {
       <div className="py-2">
         <span>Suivi du pointage Mensuel</span>
       </div>
-      <ScrollArea className="h-96 py-2 flex flex-col space-x-2.5 button w-full rounded-md  ">
+      <ScrollArea className="h-full py-2 flex flex-col space-x-2.5 button w-full rounded-md  ">
       {Present.length > 0 &&
           <Alert className="bg-tgcc-500/5" variant="destructive">
           <SearchAlert />

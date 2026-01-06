@@ -64,8 +64,7 @@ const Pointage = () => {
   console.log(status)
   return (
     <>
-      <button onClick={trigger} className=" button h-10 text-white bg-tgcc-950 border-0 cursor-pointer w-40  ">
-        <Files />
+      <button onClick={trigger} className=" button h-10  justify-center  cursor-pointer w-40  ">
         <span>Pointage</span>
       </button>
       <AnimatePresence>

@@ -25,7 +25,7 @@ const Userbutton = () => {
             height={1000}
             alt="profile"
           />
-          <span> HI {user?.first_name} </span>
+          <span> bonjour {user?.first_name} </span>
         </div>
         <ChevronsUpDown className="text-sm opacity-70" />
       </div>

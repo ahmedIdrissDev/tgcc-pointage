@@ -9,7 +9,7 @@ const page = () => {
     <>
     <div className="p-2.5">
       <h1 className='text-[17px] '>Tableau de bord</h1>
-      <p className='text-sm'>Vue d’ensemble de la présence et de l’activité des employé.</p>
+      <p className='text-sm'>Aperçu global des ressources du chantier.</p>
     </div>
     <Bord/>
     <Stock/>

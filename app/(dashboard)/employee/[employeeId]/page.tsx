@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { SquarePen } from "lucide-react";
+import { ChevronRight, SquarePen } from "lucide-react";
 import EditButton from "@/components/features/edit";
 import Loading from "@/components/section/ui/loading";
 const page = () => {
@@ -35,7 +35,7 @@ const page = () => {
       <div className="flex items-center justify-between w-full">
         <div className="py-2.5">
           <h1 className="text-[17px] ">Profile</h1>
-          <p className="text-sm">RH Consultation Salaries Détail Salaries .</p>
+          <p className="text-sm flex items-center gap-2">RH <ChevronRight/> Consultation <ChevronRight/>  Détail Salaries .</p>
         </div>
         <EditButton {...employee} />
       </div>
@@ -112,7 +112,7 @@ const page = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="bg-white border border-neutral-200 rounded-md w-full h-dvh">
+          <div className=" border border-neutral-200 rounded-md w-full h-dvh">
             <Table>
               <TableHeader>
                 <TableRow>

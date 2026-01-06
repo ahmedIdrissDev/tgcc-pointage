@@ -9,7 +9,7 @@ interface Cardtype{
 } 
 const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
   return (
-        <div className="w-full overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-200 first:border-0 first:text-tgcc-950 p-2 h-full border border-neutral-200 rounded-md">
+        <div className="w-full overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-100 first:border-0 first:text-tgcc-950 p-2 h-full border border-neutral-200 rounded-md">
         
 <svg className='absolute  -top-8 -right-8  opacity-10' width="309" height="278" viewBox="0 0 309 278" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_1_9)">
@@ -40,7 +40,7 @@ const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
                <h3 className='text-2xl'>{Number}</h3> 
             </div>
             {hasbutton &&
-              <button className='w-40 button flex justify-center items-center gap-2 h-12 cursor-pointer rounded-md bg-white text-neutral-950 '> 
+              <button className='w-30 button bg-tgcc-500  flex justify-center items-center gap-2 h-12 cursor-pointer rounded-xl  text-white border-0 '> 
               <ArrowUpRight/>
                <span>details</span>
               </button>

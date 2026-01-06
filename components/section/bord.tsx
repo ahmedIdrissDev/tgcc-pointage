@@ -22,7 +22,7 @@ const Bord = () => {
         icon={<TrendingDown/>}
         label='Absents'
         description='Employés marqués comme absents'
-           hasbutton
+           
 
        />
               <Card
