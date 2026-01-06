@@ -1,5 +1,7 @@
 import Bord from '@/components/section/bord'
 import Employee from '@/components/section/ui/employee'
+import Engins from '@/components/section/ui/Engins'
+import Stock from '@/components/section/ui/stock'
 import React from 'react'
 
 const page = () => {
@@ -10,14 +12,10 @@ const page = () => {
       <p className='text-sm'>Vue d’ensemble de la présence et de l’activité des employé.</p>
     </div>
     <Bord/>
+    <Stock/>
     <div className="p-2 grid gap-2 grid-cols-2">
     <Employee/>
-    <div className="w-full h-full ">
-      <div className="py-2">
-  <span>Pointage des engins</span>
-</div>
-<div className="w-full  h-full button"></div>
-    </div>
+    <Engins/>
     </div>
     </>
   )

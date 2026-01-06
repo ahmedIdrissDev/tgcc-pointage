@@ -64,7 +64,7 @@ const Pointage = () => {
   console.log(status)
   return (
     <>
-      <button onClick={trigger} className=" button h-10 cursor-pointer w-40  ">
+      <button onClick={trigger} className=" button h-10 text-white bg-tgcc-950 border-0 cursor-pointer w-40  ">
         <Files />
         <span>Pointage</span>
       </button>
@@ -83,10 +83,7 @@ const Pointage = () => {
             className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
           >
             <div className="flex flex-col gap-2">
-              <div className="bg-tgcc-600/5  p-1.5 border border-neutral-200 h-12 flex justify-between items-center rounded-md">
-                  <span>{chantier?.name} </span>
-                  <input type="time" defaultValue={'08:00'} name="" id="" />
-              </div>
+              
               <input
                 onChange={(e) => setNumber_Id(Number(e.currentTarget.value))}
                 className="w-full  rounded-md h-11 border border-neutral-200 px-2"

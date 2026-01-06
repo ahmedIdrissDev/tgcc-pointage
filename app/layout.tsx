@@ -17,6 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "tgcc Resources ",
   description: "tgcc Resources ",
+  icons:'/icons/logo.svg'
 };
 
 export default async function RootLayout({

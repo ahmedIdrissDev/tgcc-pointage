@@ -2,7 +2,7 @@
 import React from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { SearchAlert } from "lucide-react";
+import { AlertCircle, SearchAlert } from "lucide-react";
 import { ContextStoreDataProvider } from "@/Context";
 import {
   Table,
@@ -28,7 +28,7 @@ const Employee = () => {
       </div>
       <ScrollArea className="h-96 py-2 flex flex-col space-x-2.5 button w-full rounded-md  ">
       {Present.length > 0 &&
-          <Alert variant="destructive">
+          <Alert className="bg-tgcc-500/5" variant="destructive">
           <SearchAlert />
           <AlertTitle>Suivi </AlertTitle>
           <AlertDescription>
@@ -52,27 +52,30 @@ const Employee = () => {
       }
         { Present.length > 0 &&
                     
-                    
+            <div className="button mt-1">
+
         <Table className="mt-2">
           <TableBody>
             
             {Present.map(
-              ({ number_id, first_name, last_name, type, status }, key) => (
-                <TableRow>
+              ({ number_id, first_name, last_name, type,  }, key) => (
+                <TableRow key={key}>
                   <TableCell className="font-medium">{number_id} </TableCell>
 
                   <TableCell className="font-medium">{last_name} </TableCell>
                   <TableCell>{first_name} </TableCell>
                   <TableCell>{type}</TableCell>
                   <TableHead>
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                  </TableHead>
+                        <AlertCircle/>
+      
+                               </TableHead>
                 </TableRow>
               )
             )}
           </TableBody>
         </Table>
-      
+                  </div>        
+
       
       }
       </ScrollArea>
