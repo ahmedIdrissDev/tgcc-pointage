@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import Buttonaction from './ui/button-action'
 const Stockitems = () => {
   return (
     <div className='button bg-white p-0'>
@@ -34,7 +35,9 @@ const Stockitems = () => {
       <TableCell className="text-right">$250.00</TableCell>
 
 
-      <TableCell className="text-right">$250.00</TableCell>
+      <TableCell className="text-right">
+        <Buttonaction/>
+      </TableCell>
 
     </TableRow>
   </TableBody>
