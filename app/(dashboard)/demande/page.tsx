@@ -1,12 +1,8 @@
-import Navbar from '@/components/engins/nav-bar'
 import React from 'react'
 
 const page = () => {
   return (
-  <>
-  <Navbar/>
-  
-  </>
+    <div>page</div>
   )
 }
 

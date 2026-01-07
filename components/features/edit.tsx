@@ -125,6 +125,10 @@ const EditButton = ({ _id, first_name, last_name, status, type , number_id }: Em
                 placeholder="Maricule"
               />               
             </div>
+              <div className="flex w-full flex-col gap-1.5">
+            <span>Utilise transport TGCC</span>
+                <input className="accent-tgcc-400 rounded-xl border border-neutral-200"  type="checkbox" name="" id="" />
+            </div>
                 </div>
 
               </div>

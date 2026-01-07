@@ -11,7 +11,7 @@ const layout = ({
   return (
     <div className='grid  h-dvh grid-cols-[270px_1fr] '>
       <Sidebar />
-       <ScrollArea  className="w-full  bg-tgcc-50/40   h-dvh">
+       <ScrollArea  className="w-full     h-dvh">
         <Navbar/>
         <div className="p-2 ">
 

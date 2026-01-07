@@ -42,6 +42,7 @@ const Employee = getEmployeesData
       e.preventDefault();
       const   project_id = employee.project_id as Id<"Project"> 
       const employee_id = employee._id as Id<"Employee">
+       
       if(employee.status ==="Inactif") {
          return  toast.error('Le salaire ne pas actif.')
        } 
@@ -59,7 +60,6 @@ const Employee = getEmployeesData
               setloading(true)
 
         const error = await handleAttendance(data)
-        formRef.current?.reset()
         setloading(false)
         if(error?.error) {
           toast.info(error.error)

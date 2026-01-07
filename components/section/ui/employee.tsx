@@ -66,7 +66,7 @@ const Employee = () => {
                   <TableCell>{first_name} </TableCell>
                   <TableCell>{type}</TableCell>
                   <TableHead>
-                        <AlertCircle/>
+                        <AlertCircle className="text-red-500"/>
       
                                </TableHead>
                 </TableRow>

@@ -9,7 +9,7 @@ interface Cardtype{
 } 
 const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
   return (
-        <div className="w-full overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-100 first:border-0 first:text-tgcc-950 p-2 h-full border border-neutral-200 rounded-md">
+        <div className="w-full overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-950 first:border-0 first:text-white p-2 h-full border border-neutral-200 rounded-md">
         
 <svg className='absolute  -top-8 -right-8  opacity-10' width="309" height="278" viewBox="0 0 309 278" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_1_9)">
@@ -18,7 +18,7 @@ const Card = ({Number ,icon ,label ,description ,hasbutton}:Cardtype) => {
 </g>
 </g>
 <defs>
-<filter id="filter0_f_1_9" x="-1.14441e-05" y="-1.14441e-05" width="308.313" height="277.985" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_1_9" x="-1.14441e-05" y="-1.14441e-05" width="308.313" height="277.985" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="13.4" result="effect1_foregroundBlur_1_9"/>

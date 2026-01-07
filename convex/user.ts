@@ -19,8 +19,9 @@ export const login = query({
         .first();
       if(!user) return null
       if (user) {
-        const { first_name, last_name, role, _id } = user;
+        const { first_name, last_name, role, _id ,username } = user;
         return {
+          username,
           _id,
           first_name,
           last_name,
