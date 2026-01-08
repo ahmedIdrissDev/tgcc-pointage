@@ -5,8 +5,8 @@ import { EmployeeDataTypes } from "@/types";
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Barcode from 'react-barcode';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
   Table,
   TableBody,
@@ -35,7 +35,7 @@ const page = () => {
       <div className="flex items-center justify-between w-full">
         <div className="py-2.5">
           <h1 className="text-[17px] ">Profile</h1>
-          <p className="text-sm flex items-center gap-2">RH <ChevronRight/> Consultation <ChevronRight/>  Détail Salaries .</p>
+          <p className="text-sm flex items-center gap-2">RH  Consultation   Détail Salaries .</p>
         </div>
         <EditButton {...employee} />
       </div>
@@ -64,54 +64,70 @@ const page = () => {
       </div>
 
       <Tabs
-        selectedIndex={tabIndex}
-        onSelect={(index) => setTabIndex(index)}
+        defaultValue="Chantier"
         className={"flex flex-col h-dvh gap-2"}
       >
-        <TabList
+        <TabsList
+         
           className={
-            "flex h-14 py-3 px-2 bg-tgcc-600 rounded-md  items-center gap-2"
+            "button flex h-14  py-3 w-full px-2 bg-white rounded-md  items-center gap-2"
           }
         >
-          <Tab
+          <TabsTrigger
+                         value="Chantier"
+                         
+
             className={
-              "button shadow-none rounded-md border-0 focus-within:bg-neutral-950 focus-within:text-white outline-0 h-10 w-30"
+              "button shadow-none  rounded-md border-0  focus-within:bg-neutral-950 focus-within:text-white outline-0 h-10 w-30"
             }
           >
             Chantier
-          </Tab>
-          <Tab
+          </TabsTrigger>
+          <TabsTrigger
+             value="Précoces"
             className={
               "button shadow-none rounded-md border-0 focus-within:bg-neutral-950 focus-within:text-white outline-0 h-10 w-30"
             }
           >
             Précoces
-          </Tab>
-          <Tab
+          </TabsTrigger>
+          <TabsTrigger
+          value="badges"
             className={
               "button shadow-none rounded-md border-0 focus-within:bg-neutral-950 focus-within:text-white outline-0 h-10 w-30"
             }
           >
             badges
-          </Tab>
-          <Tab
+          </TabsTrigger>
+          <TabsTrigger
+            value="Fichier"
             className={
               "button shadow-none rounded-md border-0 focus-within:bg-neutral-950 focus-within:text-white outline-0 h-10 min-w-30"
             }
           >
             {" "}
             Fichier de paie
-          </Tab>
-        </TabList>
-        <TabPanel>
+          </TabsTrigger>
+            <TabsTrigger
+          value="badges"
+            className={`button h-11  data-[state=active]:shadow-none data-[state=active]:border-0`}
+          >
+            Documents
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent
+         value="Chantier"
+        >
           <div className=" w-full h-dvh">
             <div className="w-full justify-between button  h-12">
               <span>{chantier.name} </span>
               <button className="button h-10 w-40">désaffecté</button>
             </div>
           </div>
-        </TabPanel>
-        <TabPanel>
+        </TabsContent>
+        <TabsContent
+         value="Précoces"
+         >
           <div className=" border border-neutral-200 rounded-md w-full h-dvh">
             <Table>
               <TableHeader>
@@ -141,18 +157,22 @@ const page = () => {
               </TableBody>
             </Table>
           </div>
-        </TabPanel>
+        </TabsContent>
 
-        <TabPanel>
+        <TabsContent
+        value="badges"
+        >
           <div className="bg-neutral-50 w-full h-dvh">
               <Barcode className="w-72 h-12" value={employee.number_id} />,
           </div>{" "}
-        </TabPanel>
-        <TabPanel>
+        </TabsContent>
+        <TabsContent
+         value="Fichier"
+        >
           <div className="bg-neutral-50 w-full h-dvh">
             <h2>Any content 4</h2>
           </div>{" "}
-        </TabPanel>
+        </TabsContent>
       </Tabs>
     </div>
   );

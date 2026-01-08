@@ -26,7 +26,7 @@ const Stockitems = () => {
     </TableRow>
   </TableHeader>
   <TableBody>
-    <TableRow>
+    <TableRow className="">
       <TableCell className="font-medium">INV001</TableCell>
       <TableCell>Paid</TableCell>
       <TableCell>Credit Card</TableCell>
@@ -37,8 +37,8 @@ const Stockitems = () => {
         <Buttonaction/>
       </TableCell>
 
-    </TableRow>
-     <TableRow>
+    </TableRow >
+     <TableRow className="">
       <TableCell className="font-medium">INV001</TableCell>
       <TableCell>Paid</TableCell>
       <TableCell>Credit Card</TableCell>

@@ -1,3 +1,5 @@
+import { Id } from "@/convex/_generated/dataModel";
+
 export interface Attendance {
   _creationTime: number;
   _id: string;
@@ -23,7 +25,7 @@ export interface Employee {
 
 export interface Project {
   _creationTime: number;
-  _id: string;
+  _id: Id<"Project">;
   name: string;
   users: string[];
 }
@@ -57,4 +59,31 @@ export interface ContextStoreProvider {
   setdata: (data:EmployeeStoreType[])=> void ;
   Project:Project ;
   setProject: (args:Project) => void 
+}
+
+
+export interface GestionnaireDemande {
+  Gestionnaire: string;
+
+  Project: {
+    _creationTime: number;
+    _id: Id<"user">;
+    first_name: string;
+    last_name: string;
+    password: string;
+    role: "Admin" | "User";
+    username: string;
+  };
+
+  data: {
+    _creationTime: number;
+    _id: Id<"Demande">;
+    code: string;
+    commentaire: string;
+    datedelivraison: string;
+    project_id: Id<"Project">;
+    quantite: string;
+    validation:true | false
+    user_Id: Id<"user">;
+  };
 }

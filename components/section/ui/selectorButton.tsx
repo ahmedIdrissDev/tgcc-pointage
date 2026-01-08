@@ -31,7 +31,6 @@ const SelectorButton = () => {
          const chantierSelected = chantier.find(({_id})=> _id===ProjectId)
          setProject(chantierSelected)
    } , [employeedata])
-   console.log( 'data', employeedaa)
   return (
 <Select onValueChange={e=> setProjectId(e)}>
   <SelectTrigger className="">

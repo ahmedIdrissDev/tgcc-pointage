@@ -14,6 +14,7 @@ const Bord = () => {
        <Card
         Number={employees.length}
         icon={<User/>}
+        main
         label='Aperçu des employés'
         description='Résumé rapide de tous les employés'
        />
