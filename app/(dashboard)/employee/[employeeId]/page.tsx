@@ -19,6 +19,7 @@ import {
 import { ChevronRight, SquarePen } from "lucide-react";
 import EditButton from "@/components/features/edit";
 import Loading from "@/components/section/ui/loading";
+import ButtonFiles from "@/components/hr/bar-hr";
 const page = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const { employeeId } = useParams<{ employeeId: Id<"Employee"> }>();
@@ -109,7 +110,7 @@ const page = () => {
             Fichier de paie
           </TabsTrigger>
             <TabsTrigger
-          value="badges"
+          value="Doc"
             className={`button h-11  data-[state=active]:shadow-none data-[state=active]:border-0`}
           >
             Documents
@@ -128,7 +129,7 @@ const page = () => {
         <TabsContent
          value="Précoces"
          >
-          <div className=" border border-neutral-200 rounded-md w-full h-dvh">
+          <div className=" button  rounded-md w-full p-0">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -160,11 +161,10 @@ const page = () => {
         </TabsContent>
 
         <TabsContent
-        value="badges"
+        value="Doc"
         >
-          <div className="bg-neutral-50 w-full h-dvh">
-              <Barcode className="w-72 h-12" value={employee.number_id} />,
-          </div>{" "}
+          <ButtonFiles/>
+
         </TabsContent>
         <TabsContent
          value="Fichier"
