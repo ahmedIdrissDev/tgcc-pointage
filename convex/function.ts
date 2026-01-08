@@ -114,6 +114,11 @@ export const getEmaployee = query({
         .filter((q) => q.and(q.eq(q.field("employee_id"), employee._id)))
         .order("desc")
         .collect();
+         const documents = await ctx.db
+        .query("doc")
+        .filter((q) => q.and(q.eq(q.field("employee_id"), employee._id)))
+        .order("desc")
+        .collect();
       const Attendance = await Promise.all(
         AttendanceData.map(async (data) => {
           const project_id = await ctx.db.get(data.project_id);
@@ -127,6 +132,7 @@ export const getEmaployee = query({
         employee,
         project_id,
         Attendance,
+        documents
       };
     } catch (error) {
       console.log(error);
@@ -164,3 +170,25 @@ export const fetchEmployees = query({
     );
   },
 });
+
+
+export const handledocuments= mutation({
+  args:{
+     user_Id: v.id("user"),
+    type:v.union(
+       v.literal('CIN') ,
+       v.literal('RIB') ,
+       v.literal('CNSS') ,
+       v.literal('CV') ,
+    ) ,
+    employee_id: v.id("Employee"),
+    doc_url: v.string(),
+  } ,
+  handler:async (ctx  , args)=>{
+    try {
+      await ctx.db.insert('doc' , args)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+})

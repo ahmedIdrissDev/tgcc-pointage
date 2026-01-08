@@ -20,6 +20,7 @@ import { ChevronRight, SquarePen } from "lucide-react";
 import EditButton from "@/components/features/edit";
 import Loading from "@/components/section/ui/loading";
 import ButtonFiles from "@/components/hr/bar-hr";
+import Doc from "@/components/hr/doc";
 const page = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const { employeeId } = useParams<{ employeeId: Id<"Employee"> }>();
@@ -163,8 +164,8 @@ const page = () => {
         <TabsContent
         value="Doc"
         >
-          <ButtonFiles/>
-
+             <Doc employee_id={employee._id} />
+       
         </TabsContent>
         <TabsContent
          value="Fichier"

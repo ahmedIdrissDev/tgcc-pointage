@@ -45,4 +45,19 @@ export default defineSchema({
     validation: v.optional(v.union(v.literal(false), v.literal(true))),
     admin_id: v.optional(v.id("user")),
   }).index("project_id", ["project_id"]),
+
+  doc: defineTable({
+    user_Id: v.id("user"),
+    date:v.optional(
+        v.string()
+    ) ,
+    type:v.union(
+       v.literal('CIN') ,
+       v.literal('RIB') ,
+       v.literal('CNSS') ,
+       v.literal('CV') ,
+    ) ,
+    employee_id: v.id("Employee"),
+    doc_url: v.string(),
+  }).index("employee_id", ["employee_id"]),
 });

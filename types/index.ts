@@ -14,7 +14,7 @@ export interface Attendance {
 
 export interface Employee {
   _creationTime: number;
-  _id: string;
+  _id: Id<"Employee">;
   first_name: string;
   last_name: string;
   number_id: number;
