@@ -13,6 +13,8 @@ import { useSession } from "next-auth/react";
 import { ContextStoreDataProvider } from "@/Context";
 import useDatetime from "@/hooks/useDatetime";
 import { Spinner } from "../ui/spinner";
+import Loading from "../section/ui/loading";
+import LoadingSpinner from "../section/ui/Loading";
 
 interface  AttendanceType{
    project_id:Id<"Project"> ,
@@ -91,6 +93,7 @@ const Employee = getEmployeesData
             onSubmit={handleSubmite}
             className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
           >
+            {loading && <LoadingSpinner/>}
             <div className="flex flex-col gap-2">
               
               <input
@@ -168,7 +171,6 @@ const Employee = getEmployeesData
            
             <div className="flex items-center justify-end gap-1.5">
               <button disabled={loading} className={twMerge('h-11 gap-2 flex justify-center items-center cursor-pointer w-40 bg-tgcc-600 border-t-2 border-tgcc-500 text-white rounded-md', loading  || number_Id == 0 || number_Id==null ? 'bg-neutral-500 border-neutral-400/35 cursor-auto':'bg-tgcc-600 border-t-2 border-tgcc-500')}>
-              {loading && <Spinner />}
                  {status ? "Pointage sortie":"Pointage"}
               </button>
             </div>

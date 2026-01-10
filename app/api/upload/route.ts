@@ -9,13 +9,12 @@ cloudinary.config({
 
 export async function POST(request:NextRequest) {
   const data = await request.formData();
-  const file = data.get('file') ;
+  const file = data.get('file') as File ;
 
   if (!file) {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
   }
 
-  // Convert file to buffer for Cloudinary upload stream
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
 
@@ -23,8 +22,9 @@ export async function POST(request:NextRequest) {
     const uploadResponse = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
         { 
-          resource_type: 'image', // PDFs are treated as 'image' for transformation support
-          format: 'pdf' 
+          resource_type: 'raw', 
+           access_mode: "public",    
+         delivery_type: "upload",
         },
         (error, result) => {
           if (error) reject(error);
@@ -32,8 +32,9 @@ export async function POST(request:NextRequest) {
         }
       ).end(buffer);
     });
-
-    return NextResponse.json({ url: uploadResponse.secure_url });
+  
+    return NextResponse.json({ url: uploadResponse.secure_url
+ });
   } catch (error) {
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }

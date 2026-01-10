@@ -45,20 +45,19 @@ const EditButton = ({ _id, first_name, last_name, status, type , number_id }: Em
         }
       >
         <SquarePen />
-        Edit profile
-      </button>
+Fiche salarié      </button>
       <AnimatePresence>
         {open && (
           <div
             onClick={trigger}
-            className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-center items-center"
+            className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-end items-center"
           >
             <motion.div
               initial={{ opacity: 0, translateY: 10 }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: 10 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-1/2 flex flex-col justify-between gap-2 h-[80%] p-2.5 bg-white rounded-md"
+              className="w-1/2 flex flex-col justify-between gap-2 h-full p-2.5 bg-white rounded-none"
             >
               <div className="">
 
@@ -125,9 +124,9 @@ const EditButton = ({ _id, first_name, last_name, status, type , number_id }: Em
                 placeholder="Maricule"
               />               
             </div>
-              <div className="flex w-full flex-col gap-1.5">
+              <div className="flex w-full items-center gap-1.5">
             <span>Utilise transport TGCC</span>
-                <input className="accent-tgcc-400 rounded-xl border border-neutral-200"  type="checkbox" name="" id="" />
+                <input className="accent-tgcc-400 outline-0 rounded-xl border border-neutral-200"  type="checkbox" name="" id="" />
             </div>
                 </div>
 

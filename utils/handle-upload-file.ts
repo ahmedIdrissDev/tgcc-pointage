@@ -11,7 +11,7 @@ const Handleuploadfile =  async (file:any) => {
 
       const data = await response.json();
        if (data.url) {
-         return data.url
+        return data.url
       }
       return ''
     } catch (error) {

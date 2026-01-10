@@ -11,7 +11,13 @@ export interface Attendance {
   status:boolean ;
 }
 
-
+export type documents = {
+  user_Id: Id<"user">;
+  date?: string;
+  type: "CIN" | "RIB" | "CNSS" | "CV";
+  employee_id: Id<"Employee">;
+  doc_url: string;
+};
 export interface Employee {
   _creationTime: number;
   _id: Id<"Employee">;
@@ -34,6 +40,7 @@ export interface EmployeeDataTypes {
   Attendance: Attendance[];
   employee: Employee;
   project_id: Project;
+  documents:documents[]
 }
 
 export interface PointgaeTypes {
