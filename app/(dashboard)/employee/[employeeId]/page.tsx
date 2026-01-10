@@ -4,8 +4,6 @@ import { Id } from "@/convex/_generated/dataModel";
 import { EmployeeDataTypes } from "@/types";
 import { useQuery } from "convex/react";
 import { useParams } from "next/navigation";
-import React, { useState } from "react";
-import Barcode from "react-barcode";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
@@ -16,17 +14,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ChevronRight, SquarePen } from "lucide-react";
 import EditButton from "@/components/features/edit";
 import Loading from "@/components/section/ui/loading";
-import ButtonFiles from "@/components/hr/bar-hr";
+
 import Doc from "@/components/hr/doc";
-import Buttonaction from "@/components/stock/ui/button-action";
 import { tabs } from "@/constant/tabs";
 import ConsultationButton from "@/components/hr/Consultation-doc";
 import DownloadPDF from "@/components/hr/contact";
 const page = () => {
-  const [tabIndex, setTabIndex] = useState(0);
   const { employeeId } = useParams<{ employeeId: Id<"Employee"> }>();
   const id = employeeId;
   const data: EmployeeDataTypes = useQuery(api.function.getEmaployee, { id });

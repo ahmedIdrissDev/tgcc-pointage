@@ -8,9 +8,7 @@ const Navbar = () => {
         <span className="">Manque des engins</span>
         <div className="flex items-center gap-2">
           <AjouterEnginsbutton/>
-      <button className="h-11 cursor-pointer w-40 button ">
-        Demande d’article{" "}
-      </button>
+
       <button className="h-11 bg-tgcc-600 text-white cursor-pointer w-44 button border-0 ">
         <SquarePen/>
         <span>Gestion Gasoil</span>

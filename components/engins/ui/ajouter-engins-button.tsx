@@ -24,14 +24,14 @@ const AjouterEnginsbutton = () => {
         {open && (
           <div
             onClick={trigger}
-            className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-end items-center"
+            className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-center items-center"
           >
             <motion.div
               initial={{ opacity: 0, translateY: 10 }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: 10 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-1/2 flex flex-col  gap-3 h-full p-2.5 bg-white "
+              className="w-1/2 flex flex-col  gap-3 h-[700px] p-2.5 bg-white "
             >
                 <div className="">
                   <h1>Demande d’article</h1>
@@ -44,23 +44,23 @@ const AjouterEnginsbutton = () => {
                   <div className="">
 
                   <div className="flex flex-col gap-1">
-                    <span>Code engin </span>
+                    <span className='opacity-80 text-sm'>Code engin </span>
                     <input type="text" />
                   </div>
                    <div className="flex flex-col gap-1">
-                    <span>Anne dz fabriction </span>
+                    <span className='opacity-80 text-sm'>Anne dz fabriction </span>
                     <input type="text" />
                   </div>
                    <div className="flex flex-col gap-1">
-                    <span>Module </span>
+                    <span className='opacity-80 text-sm'>Module </span>
                     <input type="text" />
                   </div>
                    <div className="flex flex-col gap-1">
-                    <span>Carnnet d'entretien </span>
+                    <span className='opacity-80 text-sm'>Carnnet d'entretien </span>
                     <input type="text" />
                   </div>
                    <div className="flex flex-col gap-1">
-                    <span>Assuance </span>
+                    <span className='opacity-80 text-sm'>Assuance </span>
                     <input type="text" />
                   </div>
                   <label htmlFor="file">
