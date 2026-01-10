@@ -49,7 +49,7 @@ const AjouterEnginsbutton = () => {
                   </div>
                    <div className="flex flex-col gap-1">
                     <span className='opacity-80 text-sm'>Anne dz fabriction </span>
-                    <input type="text" />
+                    <input type="date" />
                   </div>
                    <div className="flex flex-col gap-1">
                     <span className='opacity-80 text-sm'>Module </span>
