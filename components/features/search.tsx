@@ -42,11 +42,12 @@ const Searchbutton = () => {
   }
   return (
     <>
-      <button onClick={trigger} className=" button h-10 cursor-pointer w-11  ">
+      <button onClick={trigger} className=" button h-10 cursor-pointer w-30  ">
         <span className=" bg-linear-60 from-tgcc-500 to-tgcc-950 bg-clip-text">
         <UserRoundSearch />
-
+         
         </span>
+        <span> Salaries </span>
       </button>
       <AnimatePresence>
 
