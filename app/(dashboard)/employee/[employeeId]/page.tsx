@@ -24,6 +24,7 @@ import Doc from "@/components/hr/doc";
 import Buttonaction from "@/components/stock/ui/button-action";
 import { tabs } from "@/constant/tabs";
 import ConsultationButton from "@/components/hr/Consultation-doc";
+import DownloadPDF from "@/components/hr/contact";
 const page = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const { employeeId } = useParams<{ employeeId: Id<"Employee"> }>();
@@ -167,6 +168,9 @@ const page = () => {
           <div className="bg-neutral-50 w-full h-dvh">
             <h2>Any content 4</h2>
           </div>{" "}
+        </TabsContent>
+        <TabsContent value="Contart">
+          <DownloadPDF/>
         </TabsContent>
       </Tabs>
     </div>

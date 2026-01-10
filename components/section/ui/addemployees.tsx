@@ -12,7 +12,7 @@ import Button from './button'
 import Newemployee from '@/components/features/newemployee'
 const Addemployees = () => {
   return (
-    <div className='w-full bg-tgcc-50 button h-dvh items-center flex flex-col justify-center  '>
+    <div className='w-full bg-white button h-dvh items-center flex flex-col justify-center  '>
         <div className="">
             <Empty>
   <EmptyHeader>

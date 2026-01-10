@@ -10,7 +10,7 @@ interface Cardtype{
 } 
 const Card = ({Number ,icon ,label ,description ,hasbutton , main}:Cardtype) => {
   return (
-        <div className="w-full button overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-tgcc-950 first:border-0 first:text-white p-2 h-full rounded-md">
+        <div className="w-full button overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-neutral-900 first:border-0 first:text-white p-2 h-full rounded-md">
         {main &&
         
 <svg className='absolute  -top-8 -right-8  opacity-10' width="309" height="278" viewBox="0 0 309 278" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,8 +32,6 @@ const Card = ({Number ,icon ,label ,description ,hasbutton , main}:Cardtype) => 
 </svg>
         }
 <div className="flex h-full p-2 absolute inset-0 z-30 flex-col">
-
-
             <div className="flex justify-between items-center">
                 <span className='text-[17px] '>{label} </span>
                 <span>{icon} </span>

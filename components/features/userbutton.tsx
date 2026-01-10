@@ -15,12 +15,12 @@ const Userbutton = () => {
     <>
       <div
         onClick={trigger}
-        className="flex bg-white items-center  text-sm  border justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
+        className="flex bg-neutral-50 border-0 items-center  text-sm   justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
       >
         <div className="flex items-center gap-1.5">
           <Image
             src={"/icons/user-Profile.png"}
-            className="w-10 opacity-70 h-10 bg-neutral-200 rounded-full"
+            className="w-10 opacity-70 h-10 rounded-full"
             width={1000}
             height={1000}
             alt="profile"
