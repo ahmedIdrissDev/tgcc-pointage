@@ -36,7 +36,7 @@ const Employee = () => {
           </AlertDescription>
         </Alert>
       }
-      {!!Present &&
+      {!Present &&
       
         <div className="flex h-90 flex-col gap-2  w-full justify-center items-center">
           <Image

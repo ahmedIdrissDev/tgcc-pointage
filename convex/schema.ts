@@ -31,6 +31,9 @@ export default defineSchema({
     telephone: v.string(),
     tgcc_role: v.string(),
     tgcc_statu: v.string(),
+    rib: v.optional(v.string()) ,
+    cnss: v.optional(v.string()) 
+
   }).index("project_id", ["project_id"]),
 
   Attendance: defineTable({
@@ -66,5 +69,6 @@ export default defineSchema({
     ),
     employee_id: v.id("Employee"),
     doc_url: v.string(),
+    Gestionnaire:v.string() ,
   }).index("employee_id", ["employee_id"]),
 });

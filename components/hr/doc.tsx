@@ -30,10 +30,12 @@ const Doc = ({ employee_id }: docTypes) => {
   const trigger = () => (open ? setopen(false) : setopen(true));
   const [loading, setloading] = useState<Boolean>(false);
   const [type, settype] = useState<'CIN'|"RIB"|'CNSS'|"CV">();
-
+  const [date , setdate] = useState<string>('')
   const { data } = useSession();
   const filesize = formatFileSize(file?.size || 122)
   const user_Id= (data?.user._id|| '') as Id<"user">
+  const Gestionnaire= data?.user.username || ''
+
   const handledoc= useMutation(api.function.handledocuments)
   async function HnadleFrom(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -51,7 +53,9 @@ const Doc = ({ employee_id }: docTypes) => {
         doc_url:url  as string ,
         employee_id ,
         type ,
-        user_Id
+        user_Id ,
+        date ,
+        Gestionnaire
       })
       
       setloading(false);
@@ -111,13 +115,14 @@ const Doc = ({ employee_id }: docTypes) => {
                   <input
                     className="w-full appearance-none  rounded-md h-11 border border-neutral-200 px-2"
                     type="date"
+                    onChange={e=> setdate(e.currentTarget.value)}
                     placeholder="Maricule"
                   />{" "}
                 </div>
                 <label htmlFor="file">
                   <div className="flex border rounded-md cursor-pointer hover:border-tgcc-500 h-20 border-dashed bg-tgcc-50 justify-center items-center w-full flex-col gap-1.5">
                     <CloudUpload className="opacity-70" />
-                    <span className="text-sm opacity-70">select pdf documents</span>
+                    <span className="text-sm opacity-70">Choisir un ou plusieurs PDF</span>
                     <input
                       hidden
                       onChange={(e) => setFile(e.currentTarget.files[0])}

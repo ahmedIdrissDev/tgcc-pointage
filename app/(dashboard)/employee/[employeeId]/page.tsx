@@ -21,6 +21,7 @@ import Doc from "@/components/hr/doc";
 import { tabs } from "@/constant/tabs";
 import ConsultationButton from "@/components/hr/Consultation-doc";
 import DownloadPDF from "@/components/hr/contact";
+import { Type } from "lucide-react";
 const page = () => {
   const { employeeId } = useParams<{ employeeId: Id<"Employee"> }>();
   const id = employeeId;
@@ -63,6 +64,10 @@ const page = () => {
         <div className="w-full flex flex-col gap-1 h-20">
           <h2 className="opacity-80">Etat</h2>
           <span className="text-sm">{employee.status} </span>
+        </div>
+        <div className="w-full flex flex-col gap-1 h-20">
+          <h2 className="opacity-80">CIN</h2>
+          <span className="text-sm">{employee.cin} </span>
         </div>
       </div>
 
@@ -133,24 +138,24 @@ const page = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead className="w-[300px]">type</TableHead>
-                  <TableHead>date</TableHead>
+                  <TableHead>Date Expiration </TableHead>
                   <TableHead>commentaire</TableHead>
                   <TableHead>Gestionnaire</TableHead>
                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {documents.map(({ doc_url, type, date }, key) => (
+                {documents.map(({ doc_url, type, date ,Gestionnaire  }, key) => (
                   <TableRow className="" key={key}>
-                    <TableCell className="font-medium">{type} </TableCell>
-                    <TableCell> hjhjhj </TableCell>
-                    <TableCell>{date} </TableCell>
-                    <TableCell> hj </TableCell>
-                    <TableCell> hj </TableCell>
+                  <TableHead className="w-[300px]">{type} </TableHead>
+                    <TableCell className="">{date} </TableCell>
+                    <TableCell>  </TableCell>
+
+                    <TableCell> {Gestionnaire} </TableCell>
 
 
 
-                    <TableCell className="">
+                    <TableCell className="flex justify-end items-center">
                       <ConsultationButton url={doc_url} />
                     </TableCell>
                   </TableRow>

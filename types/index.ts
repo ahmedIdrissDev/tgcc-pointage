@@ -17,6 +17,7 @@ export type documents = {
   type: "CIN" | "RIB" | "CNSS" | "CV";
   employee_id: Id<"Employee">;
   doc_url: string;
+  Gestionnaire:string
 };
 export interface Employee {
   _creationTime: number;
@@ -27,6 +28,16 @@ export interface Employee {
   project_id: string;
   status: "Actif" | "Inactif";
   type: "Quinzainier" | "Mensuel";
+  cin: string;
+  date_naissance: string;
+  nationalite: string;
+  adresse: string;
+  ville: string;
+  pays: string;
+  telephone: string;
+  tgcc_role: string;
+  tgcc_statu: string;
+
 }
 
 export interface Project {
@@ -64,7 +75,7 @@ export type EmployeeStoreType = {
 export interface ContextStoreProvider {
   data:EmployeeStoreType[] ;
   setdata: (data:EmployeeStoreType[])=> void ;
-  Project:Project ;
+  Project:Project | null ;
   setProject: (args:Project) => void 
 }
 

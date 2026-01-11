@@ -181,8 +181,11 @@ export const handledocuments= mutation({
        v.literal('CNSS') ,
        v.literal('CV') ,
     ) ,
+    date:v.string() ,
     employee_id: v.id("Employee"),
     doc_url: v.string(),
+        Gestionnaire:v.string() ,
+
   } ,
   handler:async (ctx  , args)=>{
     try {
@@ -191,4 +194,39 @@ export const handledocuments= mutation({
       console.log(error)
     }
   }
+})
+
+/// handel employee 
+
+export const AddEmployee = mutation({
+   args:{
+    first_name: v.string(),
+    last_name: v.string(),
+    project_id: v.id("Project"),
+    type: v.union(v.literal("Quinzainier"), v.literal("Mensuel")),
+    cin: v.string(),
+    date_naissance: v.string(),
+    nationalite: v.string(),
+    adresse: v.string(),
+    ville: v.string(),
+    pays: v.string(),
+    telephone: v.string(),
+    tgcc_role: v.string(),
+    tgcc_statu: v.string(),
+
+   } ,
+    handler: async (ctx , args)=>{
+      try {
+          const employee = await ctx.db.query('Employee').collect();
+          const number_id =  2000000 + employee.length + 1 ;
+          const data = {
+            number_id   ,
+            status: 'Actif' as "Actif"|"Inactif",
+            ...args ,
+          }
+           return  await ctx.db.insert("Employee", data)
+      } catch (error) {
+          console.log(error)
+      }
+    }
 })

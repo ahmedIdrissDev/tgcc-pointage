@@ -12,18 +12,44 @@ import {
   Types,
 } from "@/constant";
 import LoadingSpinner from "../section/ui/Loading";
+import { employeeSchema } from "@/zod";
+import { toast } from "sonner";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { ContextStoreDataProvider } from "@/Context";
+import { useRouter } from "next/navigation";
 const Newemployee = () => {
   const [open, setopen] = useState<Boolean>(false);
   const [loading, setloading] = useState<boolean>(false);
   const trigger = () => (open ? setopen(false) : setopen(true));
-
+  const { Project } = ContextStoreDataProvider();
+  const handleEmployee = useMutation(api.function.AddEmployee);
+  const route = useRouter()
   async function handleFormSubmition(e: FormEvent<HTMLFormElement>) {
     try {
       e.preventDefault();
+      if(!Project) {
+                return toast.error("Please select the chantier");
+
+      }
       const formdata = new FormData(e.currentTarget);
       const formFileds = Object.fromEntries(formdata.entries());
-      setloading(true)
-      console.log(formFileds);
+      const validtion = employeeSchema.safeParse(formFileds);
+      if (validtion.success) {
+        setloading(true);
+        const data = {
+          ...validtion.data,
+          project_id: Project._id,
+        };
+        const id= await handleEmployee(data);
+        setloading(false);
+        route.push(`/employee/${id}`)
+
+      }
+      if (validtion.error) {
+        return toast.error("Merci de valide le deomane de saleri");
+      }
+
     } catch (error) {}
   }
   return (
@@ -32,13 +58,10 @@ const Newemployee = () => {
         onClick={trigger}
         className="button shadow-none border-0 rounded-md w-40 h-11 bg-tgcc-600 text-white"
       >
-
         <Plus />
         Nouvel employé
       </button>
-      {loading && 
-               <LoadingSpinner/>
-              }
+      {loading && <LoadingSpinner />}
       <AnimatePresence>
         {open && (
           <div
@@ -187,7 +210,7 @@ const Newemployee = () => {
               </div>
 
               <div className="h-12  flex w-full justify-end items-center">
-                <button className="button text-white justify-center bg-tgcc-950 h-11 w-40 ">
+                <button className="button  from-tgcc-600 to-tgcc-500 text-white border-0     bg-linear-30 justify-center h-11 w-40 ">
                   Vailder
                 </button>
               </div>
