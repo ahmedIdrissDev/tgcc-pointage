@@ -4,18 +4,27 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Plus, User, Users } from "lucide-react";
 
 import { AnimatePresence, motion } from "motion/react";
-import { countries, departments, nationalities, roles, Types } from "@/constant";
+import {
+  countries,
+  departments,
+  nationalities,
+  roles,
+  Types,
+} from "@/constant";
+import LoadingSpinner from "../section/ui/Loading";
 const Newemployee = () => {
   const [open, setopen] = useState<Boolean>(false);
   const [loading, setloading] = useState<boolean>(false);
   const trigger = () => (open ? setopen(false) : setopen(true));
 
-  async function handleFormSubmition(e:FormEvent<HTMLFormElement>){
-        try {
-            e.preventDefault()
-        } catch (error) {
-          
-        }
+  async function handleFormSubmition(e: FormEvent<HTMLFormElement>) {
+    try {
+      e.preventDefault();
+      const formdata = new FormData(e.currentTarget);
+      const formFileds = Object.fromEntries(formdata.entries());
+      setloading(true)
+      console.log(formFileds);
+    } catch (error) {}
   }
   return (
     <>
@@ -23,9 +32,13 @@ const Newemployee = () => {
         onClick={trigger}
         className="button shadow-none border-0 rounded-md w-40 h-11 bg-tgcc-600 text-white"
       >
+
         <Plus />
         Nouvel employé
       </button>
+      {loading && 
+               <LoadingSpinner/>
+              }
       <AnimatePresence>
         {open && (
           <div
@@ -33,22 +46,23 @@ const Newemployee = () => {
             className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-end items-center"
           >
             <motion.form
+              onSubmit={handleFormSubmition}
               initial={{ opacity: 0, translateY: 10 }}
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: 10 }}
               onClick={(e) => e.stopPropagation()}
               className="w-[60%] cursor-auto flex flex-col justify-between gap-1 h-full p-2.5 bg-white rounded-none"
             >
-             <Alert className="flex flex-col items-start" variant="default">
-  <Users />
-  <AlertTitle>Profile</AlertTitle>
-  <AlertDescription>
-    You can add components and dependencies to your app using the cli.
-  </AlertDescription>
-</Alert>
+              <Alert className="flex flex-col items-start" variant="default">
+                <Users />
+                <AlertTitle>Profile</AlertTitle>
+                <AlertDescription>
+                  You can add components and dependencies to your app using the
+                  cli.
+                </AlertDescription>
+              </Alert>
               <div className="w-full h-full">
                 <div className="grid w-full h-max grid-cols-2 gap-2">
-                  
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Nom</span>
                     <input type="text" name="last_name" className="w-full" />
@@ -68,9 +82,13 @@ const Newemployee = () => {
                     <span className="text-sm opacity-80">
                       Date de Naissance
                     </span>
-                    <input type="date" name="date_naissance" className="w-full" />
+                    <input
+                      type="date"
+                      name="date_naissance"
+                      className="w-full"
+                    />
                   </div>
-                     <div className="w-full items-start  flex flex-col gap-1.5">
+                  <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Nationalité</span>
                     <select
                       defaultValue={"Marocaine"}
@@ -89,7 +107,7 @@ const Newemployee = () => {
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Type</span>
                     <select
-                    name="type"
+                      name="type"
                       defaultValue={"Quinzainier"}
                       className="input w-full"
                       id="datalist-2"
@@ -101,7 +119,7 @@ const Newemployee = () => {
                       ))}
                     </select>
                   </div>
-                   <div className="w-full items-start  flex flex-col gap-1.5">
+                  <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Statut</span>
                     <select
                       name="tgcc_statu"
@@ -137,13 +155,13 @@ const Newemployee = () => {
                   </div>
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Ville</span>
-                    <input name="adresse" type="text" className="w-full" />
+                    <input name="ville" type="text" className="w-full" />
                   </div>
 
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Pays</span>
                     <select
-                     name="pays"
+                      name="pays"
                       defaultValue={"MAROC"}
                       className="input w-full"
                       id="datalist-2"
@@ -155,7 +173,6 @@ const Newemployee = () => {
                       ))}
                     </select>
                   </div>
-                  
 
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Adress</span>
@@ -166,10 +183,7 @@ const Newemployee = () => {
                     <span className="text-sm opacity-80">Telephone</span>
                     <input type="text" name="telephone" className="w-full" />
                   </div>
-
-                  
-                 
-              </div>
+                </div>
               </div>
 
               <div className="h-12  flex w-full justify-end items-center">
