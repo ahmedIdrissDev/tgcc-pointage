@@ -22,6 +22,15 @@ export default defineSchema({
     project_id: v.id("Project"),
     type: v.union(v.literal("Quinzainier"), v.literal("Mensuel")),
     status: v.union(v.literal("Actif"), v.literal("Inactif")),
+    cin: v.string(),
+    date_naissance: v.string(),
+    nationalite: v.string(),
+    adresse: v.string(),
+    ville: v.string(),
+    pays: v.string(),
+    telephone: v.string(),
+    tgcc_role: v.string(),
+    tgcc_statu: v.string(),
   }).index("project_id", ["project_id"]),
 
   Attendance: defineTable({
@@ -39,7 +48,7 @@ export default defineSchema({
     user_Id: v.id("user"),
     project_id: v.id("Project"),
     code: v.string(),
-    quantite:v.string() ,
+    quantite: v.string(),
     datedelivraison: v.string(),
     commentaire: v.string(),
     validation: v.optional(v.union(v.literal(false), v.literal(true))),
@@ -48,15 +57,13 @@ export default defineSchema({
 
   doc: defineTable({
     user_Id: v.id("user"),
-    date:v.optional(
-        v.string()
-    ) ,
-    type:v.union(
-       v.literal('CIN') ,
-       v.literal('RIB') ,
-       v.literal('CNSS') ,
-       v.literal('CV') ,
-    ) ,
+    date: v.optional(v.string()),
+    type: v.union(
+      v.literal("CIN"),
+      v.literal("RIB"),
+      v.literal("CNSS"),
+      v.literal("CV")
+    ),
     employee_id: v.id("Employee"),
     doc_url: v.string(),
   }).index("employee_id", ["employee_id"]),

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -56,15 +55,17 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@layer components{
-  .button{
-    @apply  rounded-md bg-white cursor-pointer flex items-center px-2 gap-2    border-neutral-300/40 shadow-neutral-100/55
+@layer components {
+  .button {
+    @apply rounded-md bg-white cursor-pointer flex items-center px-2 gap-2    border-neutral-300/40 shadow-neutral-100/55;
   }
-
+  .input {
+    @apply border border-neutral-200 h-11 rounded-md px-2 outline-0 focus:outline-1 invalid:outline-red-500 focus:outline-tgcc-400;
+  }
 }
 @layer base {
-  input{
-    @apply border border-neutral-200 h-11 rounded-md px-2 outline-0 focus:outline-1 invalid:outline-red-500 focus:outline-tgcc-400
+  input {
+    @apply border border-neutral-200 h-11 rounded-md px-2 outline-0 focus:outline-1 invalid:outline-red-500 focus:outline-tgcc-400;
   }
 }
 

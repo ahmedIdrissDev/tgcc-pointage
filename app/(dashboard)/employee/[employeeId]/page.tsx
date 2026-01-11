@@ -165,7 +165,8 @@ const page = () => {
           </div>{" "}
         </TabsContent>
         <TabsContent value="Contart">
-          <DownloadPDF/>
+
+
         </TabsContent>
       </Tabs>
     </div>

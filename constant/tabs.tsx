@@ -11,6 +11,10 @@ export const tabs : tabsProps[] = [
         label:'Précoces' , 
         value:'Précoces' ,
     }  ,
+                    {
+        label:'document' , 
+        value:'Doc' ,
+    } ,
     {
         label:'Contart' , 
         value:'Contart' ,
@@ -23,8 +27,5 @@ export const tabs : tabsProps[] = [
         label:'Fichier' , 
         value:'Fichier de paie' ,
     }  ,
-                    {
-        label:'document' , 
-        value:'Doc' ,
-    } 
+    
 ]
