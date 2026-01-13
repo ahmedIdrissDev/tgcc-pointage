@@ -10,6 +10,7 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { toast } from "sonner";
 import LoadingSpinner from "@/components/section/ui/Loading";
+import { DP } from "@/constant";
 
 export interface Demande {
   user_Id: Id<"user">;
@@ -20,7 +21,7 @@ export interface Demande {
   quantite: string;
 }
 
-const DemandButton = () => {
+const DemandAntern = () => {
   const [open, setopen] = useState<Boolean>(false);
   const trigger = () => (open ? setopen(false) : setopen(true));
   const { Project } = ContextStoreDataProvider();
@@ -57,7 +58,7 @@ const DemandButton = () => {
   return (
     <>
       <button onClick={trigger} className="h-11 border border-neutral-200 cursor-pointer w-40 button ">
-        Demande Achat{" "}
+        Demande Anterne{" "}
       </button>
       {
         loading && <LoadingSpinner/>
@@ -77,7 +78,7 @@ const DemandButton = () => {
             >
               <div className="h-full">
                 <div className="">
-                  <h1>Demande Achat{" "}</h1>
+                  <h1>        Demande Anterne{" "}</h1>
                 </div>
                 <form
                   onSubmit={handleFrom}
@@ -93,7 +94,7 @@ const DemandButton = () => {
                       <input type="text" defaultValue={Project?.name} id="" />
                     </div>
                     
-                 
+                   
                     <div className="w-full flex flex-col gap-0.5">
                       <span className="text-sm opacity-80">
                         Gestionnaire de ressources{" "}
@@ -116,6 +117,20 @@ const DemandButton = () => {
                         id=""
                       />
                     </div>
+                      <div className="w-full items-start  flex flex-col gap-1.5">
+                                       <span className="text-sm opacity-80">Atelier</span>
+                                       <select
+                                         name="pays"
+                                         className="input w-full"
+                                         id="datalist-2"
+                                       >
+                                         {DP.map((country, key) => (
+                                           <option key={key} value={country}>
+                                             {country}{" "}
+                                           </option>
+                                         ))}
+                                       </select>
+                                     </div>
                     <Alert className="h-32" variant="destructive">
                       <User2 />
                       <AlertTitle>Demandeur du chantier!</AlertTitle>
@@ -140,30 +155,19 @@ const DemandButton = () => {
                       <input type="text" name="code" id="" />
                     </div>
                      <div className="w-full flex flex-col gap-0.5">
-                      <span className="text-sm opacity-80"> Quantité</span>
-                      <input type="text" name="quantite" id="" />
-                    </div>
-                     <div className="w-full flex flex-col gap-0.5">
-                      <span className="text-sm opacity-80">Qte Budget</span>
-                      <input type="text" name="quantite" id="" />
-                    </div>
-                      <div className="w-full flex flex-col gap-0.5">
-                      <span className="text-sm opacity-80">Qte Déjà Commandée</span>
+                      <span className="text-sm opacity-80"> Libellé</span>
                       <input type="text" name="quantite" id="" />
                     </div>
                      <div className="w-full flex flex-col gap-0.5">
                       <span className="text-sm opacity-80">Unité</span>
                       <input type="text" name="quantite" id="" />
                     </div>
+                     
                      <div className="w-full flex flex-col gap-0.5">
-                      <span className="text-sm opacity-80"> Désignation</span>
-                        <textarea
-                        className="w-full rounded-md outline focus:outline-tgcc-400  resize-none  h-30 p-2 border border-neutral-200 "
-                        name="commentaire"
-                        id=""
-                      ></textarea>                
-                      
-                       </div>
+                      <span className="text-sm opacity-80">Quantité</span>
+                      <input type="text" name="quantite" id="" />
+                    </div>
+                    
                     
                   </div>
                   </div>
@@ -183,4 +187,4 @@ const DemandButton = () => {
   );
 };
 
-export default DemandButton;
+export default DemandAntern;

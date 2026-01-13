@@ -91,7 +91,7 @@ const Employee = getEmployeesData
             exit={{opacity:0 , translateY:10}}
             onClick={e=> e.stopPropagation()}
             onSubmit={handleSubmite}
-            className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
+            className="w-1/2 border-0 flex border-t-[30px] border-tgcc-500 flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
           >
             {loading && <LoadingSpinner/>}
             <div className="flex flex-col gap-2">

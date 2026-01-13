@@ -87,7 +87,7 @@ const Doc = ({ employee_id }: docTypes) => {
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: 10 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-1/2 flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
+              className="w-[400px] flex flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
             >
               {loading && 
                <LoadingSpinner/>
@@ -98,7 +98,7 @@ const Doc = ({ employee_id }: docTypes) => {
                 <div className="flex flex-col gap-1">
                   <span className="text-sm">Type</span>
 
-                  <Select onValueChange={(e) => settype(e)}>
+                  <Select  onValueChange={(e) => settype(e)}>
                     <SelectTrigger className="w-full border border-neutral-200 rounded-md">
                       <SelectValue placeholder="Type" />
                     </SelectTrigger>

@@ -67,7 +67,7 @@ Fiche salarié      </button>
               <span className="text-sm"> Détails complets des salaires employés</span>
             </div>
   <div className="w-full h-full">
-                <div className="grid w-full h-max grid-cols-2 gap-2">
+                <div className="grid w-full h-max grid-cols-3 gap-2">
                   <div className="w-full items-start  flex flex-col gap-1.5">
                     <span className="text-sm opacity-80">Nom</span>
                     <input type="text" defaultValue={data.last_name} name="last_name" className="w-full" />
@@ -155,8 +155,11 @@ Fiche salarié      </button>
                       ))}
                     </select>
                   </div>
-
-                  <div className="w-full flex col-span-2 h-12  items-center">
+                   <div className="w-full items-start  flex flex-col gap-1.5">
+                    <span className="text-sm opacity-80">Telephone</span>
+                    <input defaultValue={data.telephone} type="text" name="telephone" className="w-full" />
+                  </div>
+                  <div className="w-full flex col-span-3 h-12  items-center">
                     Adress
                   </div>
                   <div className="w-full items-start  flex flex-col gap-1.5">
@@ -185,22 +188,26 @@ Fiche salarié      </button>
                     <input name="adresse"                       defaultValue={data.adresse} type="text" className="w-full" />
                   </div>
 
-                  <div className="w-full items-start  flex flex-col gap-1.5">
-                    <span className="text-sm opacity-80">Telephone</span>
-                    <input defaultValue={data.telephone} type="text" name="telephone" className="w-full" />
-                  </div>
-                </div>
+                
               </div>
+                <div className="w-full flex col-span-3 h-12  items-center">
+                    Tgcc servies
+                  </div>
+                  <div className="w-full  items-center  flex  gap-1.5">
+                    <span className="text-sm opacity-80"> 	Utilise transport TGCC 		</span>
+                    <input name="adresse"                     type="checkbox" className="w-3 accent-tgcc-600 outline-0 h-3" />
+                  </div>
+              </div>
+
 
               </div>
                <div className="flex items-center justify-end">
                  <button
-        onClick={trigger}
         className={
           "h-11  border-0 shadow-none cursor-pointer w-36 text-white rounded-md bg-tgcc-500"
         }
       >
-        Edit profile
+         Valider
       </button>
                </div>
 

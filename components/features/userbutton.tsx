@@ -10,7 +10,7 @@ const Userbutton = () => {
   const trigger = () => (open ? setopen(false) : setopen(true));
 
   const { data } = useSession();
-  const user = data?.user;
+  const user = data?.user.first_name;
   return (
     <>
       <div
@@ -25,7 +25,7 @@ const Userbutton = () => {
             height={1000}
             alt="profile"
           />
-          <span> bonjour {user?.username} </span>
+          <span> bonjour {user} </span>
         </div>
         <ChevronsUpDown className="text-sm opacity-70" />
       </div>

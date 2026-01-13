@@ -47,7 +47,7 @@ const Newemployee = () => {
 
       }
       if (validtion.error) {
-        return toast.error("Merci de valide le deomane de saleri");
+        return toast.error("Merci de bien vouloir valider la demande du salarié.");
       }
 
     } catch (error) {}
@@ -70,11 +70,11 @@ const Newemployee = () => {
           >
             <motion.form
               onSubmit={handleFormSubmition}
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              exit={{ opacity: 0, translateY: 10 }}
+              initial={{ opacity: 0, translateX: 10 }}
+              animate={{ opacity: 1, translateX: 0 }}
+              exit={{ opacity: 0, translateX: 10 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-[60%] cursor-auto flex flex-col justify-between gap-1 h-full p-2.5 bg-white rounded-none"
+              className="w-[80%] cursor-auto flex flex-col justify-between gap-1 h-full p-2.5 bg-white rounded-none"
             >
               <Alert className="flex flex-col items-start" variant="default">
                 <Users />

@@ -31,7 +31,7 @@ export const links:links[]=[
     } ,
      {
         icon:<Package/> ,
-        label:'    Demande interne / d Achat' ,
+        label:'    Demande' ,
         path:'/demande'
     } ,
          {

@@ -1,12 +1,14 @@
 import { SquarePen } from "lucide-react";
 import React from "react";
 import DemandButton from "./ui/demand-achat-anterne";
+import DemandAntern from "./ui/demand-anterne";
 
 const Navbar = () => {
   return (
     <div className="flex w-full bg-white  p-2 rounded-md  gap-2 items-center min-h-12 justify-between">
         <span className="">Manque de stock</span>
         <div className="flex items-center gap-2">
+          <DemandAntern/>
         <DemandButton/>
       <button className="h-11 cursor-pointer w-44 button border-0 bg-tgcc-700 text-white">
         <SquarePen/>
