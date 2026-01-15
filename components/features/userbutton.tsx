@@ -33,7 +33,7 @@ const Userbutton = () => {
         {open && (
           <div
             onClick={trigger}
-            className="inset-0 z-40 fixed bg-neutral-950/15 flex justify-center items-center"
+            className="inset-0 z-40 fixed text-neutral-950 bg-neutral-950/15 flex justify-center items-center"
           >
             <motion.div
               initial={{ opacity: 0, translateY: 10 }}

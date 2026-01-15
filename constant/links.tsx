@@ -36,7 +36,7 @@ export const links:links[]=[
     } ,
          {
         icon:<Settings/> ,
-        label:'Paramètres' ,
+        label:'Administration' ,
         path:'/settings'
     } ,
    
