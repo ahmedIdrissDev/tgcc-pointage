@@ -3,7 +3,7 @@ import React from 'react'
 const Logo = () => {
   return (
     <>
-    {/* <svg className='w-26' width="140" height="41" viewBox="0 0 140 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className='w-26' width="140" height="41" viewBox="0 0 140 41" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2011_4)">
 <mask id="mask0_2011_4" style={{maskType:'luminance'}}  maskUnits="userSpaceOnUse" x="0" y="0" width="140" height="41">
 <path d="M140 0H0V40.5305H140V0Z" fill="white"/>
@@ -20,10 +20,10 @@ const Logo = () => {
 <rect width="140" height="41" fill="white"/>
 </clipPath>
 </defs>
-</svg> */}
+</svg>
 
     
-    <svg className='w-26' width="140" height="41" viewBox="0 0 140 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* <svg className='w-26' width="140" height="41" viewBox="0 0 140 41" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clipPath="url(#clip0_2011_4)">
 <mask id="mask0_2011_4" style={{maskType:'luminance'}} maskUnits="userSpaceOnUse" x="0" y="0" width="140" height="41">
 <path d="M140 0H0V40.5305H140V0Z" fill="white"/>
@@ -40,7 +40,7 @@ const Logo = () => {
 <rect width="140" height="41" fill="white"/>
 </clipPath>
 </defs>
-</svg>
+</svg> */}
     </>
 
   )

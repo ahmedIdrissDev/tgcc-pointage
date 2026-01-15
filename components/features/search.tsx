@@ -67,6 +67,7 @@ const Searchbutton = () => {
               <span className="text-sm"> Détails complets des salaires employés</span>
             </div>
               <input
+                autoFocus
                 onChange={(e) => setNumber_Id(Number(e.currentTarget.value))}
                 className="w-full  rounded-md h-11 border border-neutral-200 px-2"
                 type="number"

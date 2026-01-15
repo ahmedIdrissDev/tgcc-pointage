@@ -15,7 +15,7 @@ const Userbutton = () => {
     <>
       <div
         onClick={trigger}
-        className="flex bg-neutral-50 border-0 items-center  text-sm   justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
+        className="flex bg-neutral-50/5 border-0 items-center  text-sm   justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
       >
         <div className="flex items-center gap-1.5">
           <Image
@@ -40,11 +40,42 @@ const Userbutton = () => {
               animate={{ opacity: 1, translateY: 0 }}
               exit={{ opacity: 0, translateY: 10 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-1/2 flex flex-col justify-between gap-2 h-96 p-2.5 bg-white rounded-md"
+              className="w-[500px] flex flex-col justify-between gap-2 h-[500px] p-2.5 bg-white rounded-md"
             >
-              <div className="">
-                <h1>Profile</h1>
-                <span>user profile</span>
+              <div className="w-full p-2 flex flex-col gap-2  h-full">
+                  <div className="flex p-1.5 bg-neutral-100 h-20 rounded-md items-center gap-1.5">
+          <Image
+            src={"/icons/user-Profile.png"}
+            className="w-10 opacity-70 h-10 rounded-full"
+            width={1000}
+            height={1000}
+            alt="profile"
+          />
+          <span>  {data?.user.first_name} {data?.user.last_name} </span>
+        </div>
+        <form className="flex justify-between h-full  flex-col gap-2 w-full" action="">
+          <div className="w-full flex flex-col gap-1.5">
+
+          <div className=" grid grid-cols-3   w-full items-center gap-2">
+            <span className=""> Name</span>
+            <input type="text" className="" defaultValue={data?.user.first_name} />
+            <input type="text" className="" defaultValue={data?.user.last_name} placeholder="email" />
+          </div>
+                    <div className="flex w-full items-center gap-2">
+            <span className=""> email</span>
+                        <input type="text" className="w-full" placeholder="your@gmail.com" />
+
+          </div>
+            <div className="flex w-full items-center gap-2">
+            <span className=""> role</span>
+                        <input type="text" className="w-full opacity-70" readOnly defaultValue={data?.user.role} placeholder="your@gmail.com" />
+
+          </div>
+          </div>
+          <div className="flex items-center justify-end">
+               <button className="button justify-center h-11 w-40 bg-tgcc-600 text-white">Valider</button>
+          </div>
+        </form>
               </div>
             </motion.div>
           </div>

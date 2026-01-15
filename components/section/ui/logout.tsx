@@ -5,7 +5,7 @@ import React from 'react'
 
 const Logout = () => {
   return (
-<button onClick={e=> signOut({redirect:true , callbackUrl:'/'})} className='flex px-2 h-11 bg-neutral-50 opacity-70 cursor-pointer  rounded-md  items-center gap-1'>
+<button onClick={e=> signOut({redirect:true , callbackUrl:'/'})} className='flex px-2 h-12 bg-neutral-50/5 opacity-70 cursor-pointer  rounded-md  items-center gap-1'>
         <LogOut/>
         <span>Logout </span>
     </button>  )

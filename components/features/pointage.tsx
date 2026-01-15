@@ -97,9 +97,11 @@ const Employee = getEmployeesData
             <div className="flex flex-col gap-2">
               
               <input
+                
                 onChange={(e) => setNumber_Id(Number(e.currentTarget.value))}
                 className="w-full  rounded-md h-11 border border-neutral-200 px-2"
                 type="number"
+                autoFocus
                 placeholder="Maricule"
               />
               {getEmployeesData?.error ? (
