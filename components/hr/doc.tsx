@@ -155,7 +155,7 @@ const Doc = ({ employee_id }: docTypes) => {
                 </AnimatePresence>
               <button
                 className={
-                  "h-11 button border-0 shadow-none cursor-pointer w-full justify-center text-white rounded-md bg-neutral-950"
+                  "h-11 button border-0 shadow-none cursor-pointer w-full justify-center text-white rounded-md bg-tgcc-950"
                 }
               >
                Ajouter         

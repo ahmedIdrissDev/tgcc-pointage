@@ -74,7 +74,7 @@ const page = () => {
       <Tabs defaultValue="Chantier" className={"flex flex-col h-dvh gap-2"}>
         <TabsList
           className={
-            "button flex border-o h-14  py-3 w-full px-2 bg-tgcc-950 rounded-md  items-center gap-2"
+            "button flex border-0 h-14  py-3 w-full px-2 bg-tgcc-950 rounded-md  items-center gap-2"
           }
         >
          {tabs.map(({label , value} , key)=>(

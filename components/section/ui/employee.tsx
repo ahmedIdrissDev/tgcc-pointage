@@ -22,13 +22,13 @@ const Employee = () => {
       ({ present, type }) => present == false && type == "Mensuel"
     ) || [];
   return (
-    <div>
+    <div className="">
       <div className="py-2">
         <span>Suivi du pointage Mensuel</span>
       </div>
       <ScrollArea className="h-full py-2 flex flex-col space-x-2.5 button w-full rounded-md  ">
       {Present.length > 0 &&
-          <Alert className="bg-tgcc-500/5" variant="destructive">
+          <Alert className="bg-white" variant="destructive">
           <SearchAlert />
           <AlertTitle>Suivi </AlertTitle>
           <AlertDescription>
@@ -52,7 +52,7 @@ const Employee = () => {
       }
         {Present &&
                     
-            <div className="button mt-1">
+            <div className="button bg-tgcc-50 mt-1">
 
         <Table className="mt-2">
           <TableBody>

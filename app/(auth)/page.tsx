@@ -48,7 +48,7 @@ export default function Home() {
          <Icon/>
         </div>
         <div className="text-center">
-          <h1 className="text-3xl">tgcc Resources </h1>
+          <h1 className="text-3xl">StaffPoint </h1>
           <p className="text-sm">Plateforme intelligente de gestion de projets </p>
         </div>
         {errors && 

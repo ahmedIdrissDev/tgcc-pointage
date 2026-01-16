@@ -10,7 +10,7 @@ const Bord = () => {
   const Present=  data?.filter(({present})=> !!present) || []
 
   return (
-    <div className='w-full p-2 h-60 gap-2 grid grid-cols-3'>
+    <div className='w-full p-2 h-46 gap-2 grid grid-cols-3'>
        <Card
         Number={employees.length}
         icon={<User/>}
@@ -19,7 +19,7 @@ const Bord = () => {
         description='Résumé rapide de tous les employés'
        />
           <Card
-        Number={Present.length}
+        Number={ employees.length - Present.length}
         icon={<TrendingDown/>}
         label='Absents'
         description='Employés marqués comme absents'

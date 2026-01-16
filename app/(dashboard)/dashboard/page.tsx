@@ -11,9 +11,8 @@ const page = () => {
       <p className='text-sm'>Aperçu global des ressources du chantier.</p>
     </div>
     <Bord/>
-    <div className="p-2 grid gap-2 grid-cols-2">
+    <div className="p-2 grid gap-2 grid-cols-1">
     <Employee/>
-    <Engins/>
     </div>
     </>
   )

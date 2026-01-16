@@ -22,10 +22,6 @@ export const tabs : tabsProps[] = [
             {
         label:'badges' , 
         value:'badges' ,
-    }  ,
-                {
-        label:'Fichier' , 
-        value:'Fichier de paie' ,
-    }  ,
+    }  
     
 ]

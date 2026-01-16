@@ -10,7 +10,7 @@ interface Cardtype{
 } 
 const Card = ({Number ,icon ,label ,description ,hasbutton , main}:Cardtype) => {
   return (
-        <div className="w-full button overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 first:bg-neutral-900 first:border-0 first:text-white p-2 h-full rounded-md">
+        <div className="w-full button overflow-hidden group relative bg-white flex flex-col shadow shadow-neutral-100 border  first:bg-tgcc-700 first:border-0 first:text-white p-2 h-full rounded-md">
         {main &&
         
 <svg className='absolute  -top-8 -right-8  opacity-10' width="309" height="278" viewBox="0 0 309 278" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,9 +41,8 @@ const Card = ({Number ,icon ,label ,description ,hasbutton , main}:Cardtype) => 
                <h3 className='text-2xl'>{Number}</h3> 
             </div>
             {hasbutton &&
-              <button className='w-30 button bg-tgcc-500  flex justify-center items-center gap-2 h-12 cursor-pointer rounded-md  text-white border-0 '> 
+              <button className='w-11 button bg-tgcc-500  flex justify-center items-center gap-2 h-12 cursor-pointer rounded-md  text-white border-0 '> 
               <ArrowUpRight/>
-               <span>details</span>
               </button>
             }
 </div>

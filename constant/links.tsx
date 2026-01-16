@@ -18,22 +18,14 @@ export const links:links[]=[
         label:'Salaries' ,
         path:'/employee'
     } ,
-     {
-        icon:<Hexagon/> ,
-        label:'Engins' ,
-        path:'/engins'
-    } ,
-     ,
+    
+     
      {
         icon:<Box/> ,
         label:'Stock' ,
         path:'/stock'
     } ,
-     {
-        icon:<Package/> ,
-        label:'    Demande' ,
-        path:'/demande'
-    } ,
+     
          {
         icon:<Settings/> ,
         label:'Administration' ,

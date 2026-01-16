@@ -83,7 +83,7 @@ const Employee = getEmployeesData
       <AnimatePresence>
 
       {open && (
-        <div onClick={trigger} className="inset-0 z-40 fixed shadow-2xl shadow-neutral-200 bg-neutral-950/15 flex justify-center items-center">
+        <div onClick={trigger} className="inset-0 z-40 fixed shadow-2xl shadow-neutral-200 bg-neutral-950/20 flex justify-center items-center">
           <motion.form
             ref={formRef}
             initial={{opacity:0 , translateY:10}}
@@ -91,7 +91,7 @@ const Employee = getEmployeesData
             exit={{opacity:0 , translateY:10}}
             onClick={e=> e.stopPropagation()}
             onSubmit={handleSubmite}
-            className="w-1/2 border-0 flex border-t-[30px] border-tgcc-500 flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
+            className="w-1/2 border-0 flex  border-tgcc-500 flex-col justify-between gap-2 min-h-96 p-2.5 bg-white rounded-md"
           >
             {loading && <LoadingSpinner/>}
             <div className="flex flex-col gap-2">
