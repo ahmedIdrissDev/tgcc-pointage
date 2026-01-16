@@ -15,11 +15,11 @@ const Userbutton = () => {
     <>
       <div
         onClick={trigger}
-        className="flex bg-neutral-50 border-0 items-center  text-sm   justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
+        className="flex bg-white border-0 items-center  text-sm   justify-between p-2 cursor-pointer gap-1.5 min-h-12 border-neutral-200 rounded-md"
       >
         <div className="flex items-center gap-1.5">
           <Image
-            src={"/icons/user-Profile.png"}
+            src={"/icons/user.png"}
             className="w-10 opacity-70 h-10 rounded-full"
             width={1000}
             height={1000}
@@ -43,9 +43,9 @@ const Userbutton = () => {
               className="w-[500px] flex flex-col justify-between gap-2 h-[500px] p-2.5 bg-white rounded-md"
             >
               <div className="w-full p-2 flex flex-col gap-2  h-full">
-                  <div className="flex p-1.5 bg-neutral-100 h-20 rounded-md items-center gap-1.5">
+                  <div className="flex p-1.5  h-20 rounded-md items-center gap-1.5">
           <Image
-            src={"/icons/user-Profile.png"}
+            src={"/icons/user.png"}
             className="w-10 opacity-70 h-10 rounded-full"
             width={1000}
             height={1000}

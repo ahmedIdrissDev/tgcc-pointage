@@ -12,9 +12,7 @@ const Navbar = () => {
     <div className="flex items-center gap-2">
       <SelectorButton/>
       <Searchbutton/>
-        <button className=" button h-10 cursor-pointer w-12  ">
-               <ArrowUpRight/>
-              </button>
+     
           <Pointage/>
     </div>
     </nav>

@@ -59,7 +59,7 @@
 
 @layer components {
   .button {
-    @apply rounded-md border   bg-white cursor-pointer flex items-center px-2 gap-2    border-neutral-300/40 shadow-neutral-100/55;
+    @apply rounded-md border    cursor-pointer flex items-center px-2 gap-2    border-neutral-300/40 shadow-neutral-100/55;
   }
   .input {
     @apply border border-neutral-200 h-11 rounded-md px-2 outline-0 focus:outline-1 invalid:outline-red-500 focus:outline-tgcc-400;

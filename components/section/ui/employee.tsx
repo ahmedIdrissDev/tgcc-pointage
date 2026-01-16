@@ -15,12 +15,11 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import Link from "next/link";
 const Employee = () => {
   const { data } = ContextStoreDataProvider();
-  const Present =
-    data?.filter(
-      ({ present, type }) => present == false && type == "Mensuel"
-    ) || [];
+  const Present = data || []
+    
   return (
     <div className="">
       <div className="py-2">
@@ -51,22 +50,31 @@ const Employee = () => {
         </div>
       }
         {Present &&
+                    <>
                     
-            <div className="button bg-tgcc-50 mt-1">
-
+                    <div className="w-full min-h-12 rounded-md p-1.5 flex justify-between items-center bg-teal-50 ">
+                      <input type="text" className="w-96 h-11 bg-white outline-0" placeholder="Matricule" />
+                      <div className="">
+                        <button className="button text-white h-11 w-40 rounded-md justify-center bg-tgcc-900 border-0 items-center">Search</button>
+                      </div>
+                    </div>
+            <div className="button p-0 mt-1">
+   
         <Table className="mt-2">
           <TableBody>
             
             {Present.map(
-              ({ number_id, first_name, last_name, type,  }, key) => (
+              ({ number_id, first_name, last_name, type, _id }, key) => (
                 <TableRow key={key}>
-                  <TableCell className="font-medium">{number_id} </TableCell>
+                  <TableCell className="font-medium h-14 ">{number_id} </TableCell>
 
                   <TableCell className="font-medium">{last_name} </TableCell>
                   <TableCell>{first_name} </TableCell>
                   <TableCell>{type}</TableCell>
                   <TableHead>
-                        <AlertCircle className="text-red-500"/>
+                     <Link href={`/employee/${_id}`} className="button justify-center w-40 h-11">
+                      Consultation
+                     </Link>
       
                                </TableHead>
                 </TableRow>
@@ -74,7 +82,9 @@ const Employee = () => {
             )}
           </TableBody>
         </Table>
+
                   </div>        
+                    </>
 
       
       }
